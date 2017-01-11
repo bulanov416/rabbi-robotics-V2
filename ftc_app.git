@@ -1,0 +1,1504 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-b431521ec2343144c1229e0d67b03f2806422759f2de314fc592fa70e320750b.css" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-de138a2a056717c1a8cc7474bc162f9183503b8279f7612485b82d79bfec70a6.css" media="all" rel="stylesheet" />
+    
+    
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/site-293f92180d0a619a750fa2b5eae9e36740f5723a59c0ec308972c70d24e834fc.css" media="all" rel="stylesheet" />
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>GitHub - ftctechnh/ftc_app: FTC Android Studio project to create FTC Robot Controller app.</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="https://avatars2.githubusercontent.com/u/12596789?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="ftctechnh/ftc_app" name="twitter:title" /><meta content="ftc_app - FTC Android Studio project to create FTC Robot Controller app." name="twitter:description" />
+      <meta content="https://avatars2.githubusercontent.com/u/12596789?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="ftctechnh/ftc_app" property="og:title" /><meta content="https://github.com/ftctechnh/ftc_app" property="og:url" /><meta content="ftc_app - FTC Android Studio project to create FTC Robot Controller app." property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+    <meta name="request-id" content="ACF53009:25DE2:E4E6A77:58769EFD" data-pjax-transient>
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="ACF53009:25DE2:E4E6A77:58769EFD" name="octolytics-dimension-request_id" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;" data-pjax-transient="true" name="analytics-location" />
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+        <meta name="expected-hostname" content="github.com">
+      <meta name="js-proxy-site-detection-payload" content="Mjc2MmJmOGY4ZjZjNzNlNDJkZTMyNjEzZjdjM2JhYTU2Nzc1NDZlYjRjNjIxNDU4M2E3MWQyMTMzYWE5MGFjZnx7InJlbW90ZV9hZGRyZXNzIjoiMTcyLjI0NS40OC45IiwicmVxdWVzdF9pZCI6IkFDRjUzMDA5OjI1REUyOkU0RTZBNzc6NTg3NjlFRkQiLCJ0aW1lc3RhbXAiOjE0ODQxNjg5NTcsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+
+      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta name="html-safe-nonce" content="5968abd53d62b9b440922eea4351e43596826093">
+
+    <meta http-equiv="x-pjax-version" content="9385e67ce6fba35164e723ada22144da">
+    
+
+      
+  <meta name="description" content="ftc_app - FTC Android Studio project to create FTC Robot Controller app.">
+  <meta name="go-import" content="github.com/ftctechnh/ftc_app git https://github.com/ftctechnh/ftc_app.git">
+
+  <meta content="12596789" name="octolytics-dimension-user_id" /><meta content="ftctechnh" name="octolytics-dimension-user_login" /><meta content="36301881" name="octolytics-dimension-repository_id" /><meta content="ftctechnh/ftc_app" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="36301881" name="octolytics-dimension-repository_network_root_id" /><meta content="ftctechnh/ftc_app" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/ftctechnh/ftc_app/commits/master.atom" rel="alternate" title="Recent Commits to ftc_app:master" type="application/atom+xml">
+
+
+      <link rel="canonical" href="https://github.com/ftctechnh/ftc_app" data-pjax-transient>
+  </head>
+
+
+  <body class="logged-out  env-production  vis-public">
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+
+    
+    
+    
+
+
+
+          <header class="site-header js-details-container alt-body-font" role="banner">
+  <div class="container-responsive">
+    <a class="header-logo-invertocat" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+
+    <button class="btn-link float-right site-header-toggle js-details-target" type="button" aria-label="Toggle navigation">
+      <svg aria-hidden="true" class="octicon octicon-three-bars" height="24" version="1.1" viewBox="0 0 12 16" width="18"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"/></svg>
+    </button>
+
+    <div class="site-header-menu">
+      <nav class="site-header-nav site-header-nav-main">
+        <a href="/personal" class="js-selected-navigation-item nav-item nav-item-personal" data-ga-click="Header, click, Nav menu - item:personal" data-selected-links="/personal /personal">
+          Personal
+</a>        <a href="/open-source" class="js-selected-navigation-item nav-item nav-item-opensource" data-ga-click="Header, click, Nav menu - item:opensource" data-selected-links="/open-source /open-source">
+          Open source
+</a>        <a href="/business" class="js-selected-navigation-item nav-item nav-item-business" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/partners /business/features /business/customers /business">
+          Business
+</a>        <a href="/explore" class="js-selected-navigation-item nav-item nav-item-explore" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship /showcases /explore">
+          Explore
+</a>      </nav>
+
+      <div class="site-header-actions">
+            <a class="btn btn-primary site-header-actions-btn" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+          <a class="btn site-header-actions-btn mr-1" href="/login?return_to=%2Fftctechnh%2Fftc_app" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+      </div>
+
+        <nav class="site-header-nav site-header-nav-secondary mr-md-3">
+          <a class="nav-item" href="/pricing">Pricing</a>
+          <a class="nav-item" href="/blog">Blog</a>
+          <a class="nav-item" href="https://help.github.com">Support</a>
+          <a class="nav-item header-search-link" href="https://github.com/search">Search GitHub</a>
+              <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ftctechnh/ftc_app/search" class="js-site-search-form" data-scoped-search-url="/ftctechnh/ftc_app/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+      <div class="header-search-scope">This repository</div>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off">
+    </label>
+</form></div>
+
+        </nav>
+    </div>
+  </div>
+</header>
+
+
+
+    <div id="start-of-content" class="accessibility-aid"></div>
+
+      <div id="js-flash-container">
+</div>
+
+
+    <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+      
+<div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+  <div class="container repohead-details-container">
+
+    
+
+<ul class="pagehead-actions">
+
+  <li>
+      <a href="/login?return_to=%2Fftctechnh%2Fftc_app"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/ftctechnh/ftc_app/watchers"
+     aria-label="203 users are watching this repository">
+    203
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fftctechnh%2Fftc_app"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/ftctechnh/ftc_app/stargazers"
+      aria-label="382 users starred this repository">
+      382
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fftctechnh%2Fftc_app"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/ftctechnh/ftc_app/network" class="social-count"
+       aria-label="1308 users forked this repository">
+      1,308
+    </a>
+  </li>
+</ul>
+
+    <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a href="/ftctechnh" class="url fn" rel="author">ftctechnh</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/ftctechnh/ftc_app" data-pjax="#js-repo-pjax-container">ftc_app</a></strong>
+
+</h1>
+
+  </div>
+  <div class="container">
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/ftctechnh/ftc_app" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /ftctechnh/ftc_app" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/ftctechnh/ftc_app/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /ftctechnh/ftc_app/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="counter">24</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/ftctechnh/ftc_app/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /ftctechnh/ftc_app/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="counter">4</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+  <a href="/ftctechnh/ftc_app/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /ftctechnh/ftc_app/projects">
+    <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+    Projects
+    <span class="counter">0</span>
+</a>
+
+
+  <a href="/ftctechnh/ftc_app/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /ftctechnh/ftc_app/pulse">
+    <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
+    Pulse
+</a>
+  <a href="/ftctechnh/ftc_app/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /ftctechnh/ftc_app/graphs">
+    <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+    Graphs
+</a>
+
+</nav>
+
+  </div>
+</div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+<div class="repository-meta js-details-container">
+  <div class="repository-meta-content col-11">
+        <span class="col-11 text-gray-dark" itemprop="about">
+          FTC Android Studio project to create FTC Robot Controller app.
+        </span>
+
+  </div>
+
+</div>
+
+
+
+<div class="overall-summary overall-summary-bottomless">
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax href="/ftctechnh/ftc_app/commits/master">
+            <svg aria-hidden="true" class="octicon octicon-history" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg>
+            <span class="num text-emphasized">
+              59
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax href="/ftctechnh/ftc_app/branches">
+          <svg aria-hidden="true" class="octicon octicon-git-branch" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+          <span class="num text-emphasized">
+            3
+          </span>
+          branches
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax href="/ftctechnh/ftc_app/releases">
+          <svg aria-hidden="true" class="octicon octicon-tag" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"/></svg>
+          <span class="num text-emphasized">
+            22
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+          <a href="/ftctechnh/ftc_app/graphs/contributors">
+  <svg aria-hidden="true" class="octicon octicon-organization" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4"/></svg>
+    <span class="num text-emphasized">
+      3
+    </span>
+    contributors
+</a>
+
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="/ftctechnh/ftc_app/search?l=java"  data-ga-click="Repository, language stats search click, location:repo overview">
+                <span class="color-block language-color" style="background-color:#b07219;"></span>
+                <span class="lang">Java</span>
+                <span class="percent">100.0%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="repository-lang-stats-graph js-toggle-lang-stats" title="Click for language details" data-ga-click="Repository, language bar stats toggle, location:repo overview">
+    <span class="language-color" aria-label="Java 100.0%" style="width:100.0%; background-color:#b07219;" itemprop="keywords">Java</span>
+  </div>
+
+
+<div class="file-navigation in-mid-page">
+
+    <div class="select-menu get-repo-select-menu js-menu-container float-right select-menu-modal-right">
+  <button class="btn btn-sm btn-primary select-menu-button js-menu-target"
+    title="Clone or download this repository"
+    type="button" aria-label="Clone or download this repository" tabindex="0" aria-haspopup="true">
+    <span>Clone or download</span>
+  </button>
+
+  <div class="select-menu-modal-holder dropdown-menu-content js-menu-content" aria-hidden="true">
+    <div class="get-repo-modal dropdown-menu dropdown-menu-sw pb-0 js-toggler-container ">
+      <div class="clone-options https-clone-options">
+
+        <h4 class="mb-1">
+          Clone with HTTPS
+          <a class="muted-link" href="https://help.github.com/articles/which-remote-url-should-i-use" target="_blank">
+            <svg aria-hidden="true" class="octicon octicon-question" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"/></svg>
+          </a>
+        </h4>
+        <p class="mb-2 get-repo-decription-text">
+          Use Git or checkout with SVN using the web URL.
+        </p>
+
+        <div class="input-group js-zeroclipboard-container">
+  <input type="text" class="form-control input-monospace input-sm js-zeroclipboard-target js-url-field" value="https://github.com/ftctechnh/ftc_app.git" aria-label="Clone this repository at https://github.com/ftctechnh/ftc_app.git" readonly>
+  <div class="input-group-button">
+    <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><svg aria-hidden="true" class="octicon octicon-clippy" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button>
+  </div>
+</div>
+
+      </div>
+
+
+      <div class="mt-2">
+        
+<a href="/ftctechnh/ftc_app/archive/master.zip"
+   class="btn btn-outline get-repo-btn
+"
+   rel="nofollow"
+   data-ga-click="Repository, download zip, location:repo overview">
+  Download ZIP
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="BtnGroup float-right">
+
+    <a href="/ftctechnh/ftc_app/find/master"
+      class="btn btn-sm empty-icon float-right BtnGroup-item"
+      data-pjax
+      data-hotkey="t"
+      data-ga-click="Repository, find file, location:repo overview">
+      Find file
+    </a>
+  </div>
+
+  
+<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
+  <button class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    
+    type="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <i>Branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </button>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+        <span class="select-menu-title">Switch branches/tags</span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ftctechnh/ftc_app/tree/alpha"
+               data-name="alpha"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                alpha
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ftctechnh/ftc_app/tree/beta"
+               data-name="beta"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                beta
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/ftctechnh/ftc_app/tree/master"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_006"
+              data-name="v_15_05_15_006"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_006">
+                v_15_05_15_006
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_005"
+              data-name="v_15_05_15_005"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_005">
+                v_15_05_15_005
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_004"
+              data-name="v_15_05_15_004"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_004">
+                v_15_05_15_004
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_003"
+              data-name="v_15_05_15_003"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_003">
+                v_15_05_15_003
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_002"
+              data-name="v_15_05_15_002"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_002">
+                v_15_05_15_002
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15"
+              data-name="v_15_05_15"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15">
+                v_15_05_15
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v_15_05_15_v07"
+              data-name="v_15_05_15_v07"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v_15_05_15_v07">
+                v_15_05_15_v07
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v2.35"
+              data-name="v2.35"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v2.35">
+                v2.35
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v2.4"
+              data-name="v2.4"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v2.4">
+                v2.4
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v2.2.1"
+              data-name="v2.2.1"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v2.2.1">
+                v2.2.1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v2.2"
+              data-name="v2.2"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v2.2">
+                v2.2
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/v1.77"
+              data-name="v1.77"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="v1.77">
+                v1.77
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/beta_20150803_002"
+              data-name="beta_20150803_002"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="beta_20150803_002">
+                beta_20150803_002
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/beta_20150803_001"
+              data-name="beta_20150803_001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="beta_20150803_001">
+                beta_20150803_001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/20150918_001"
+              data-name="20150918_001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="20150918_001">
+                20150918_001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/16.07.08.002"
+              data-name="16.07.08.002"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="16.07.08.002">
+                16.07.08.002
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/16.07.08.001"
+              data-name="16.07.08.001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="16.07.08.001">
+                16.07.08.001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/16.03.30.001"
+              data-name="16.03.30.001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="16.03.30.001">
+                16.03.30.001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/16.02.09.001"
+              data-name="16.02.09.001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="16.02.09.001">
+                16.02.09.001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/16.01.04.001"
+              data-name="16.01.04.001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="16.01.04.001">
+                16.01.04.001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/15.11.04.001"
+              data-name="15.11.04.001"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="15.11.04.001">
+                15.11.04.001
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+              href="/ftctechnh/ftc_app/tree/15.10.06.002"
+              data-name="15.10.06.002"
+              data-skip-pjax="true"
+              rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target" title="15.10.06.002">
+                15.10.06.002
+              </span>
+            </a>
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+      <button type="button" class="btn btn-sm disabled tooltipped tooltipped-n new-pull-request-btn" aria-label="You must be signed in to create a pull request">
+        New pull request
+      </button>
+
+  <div class="breadcrumb">
+    
+  </div>
+</div>
+
+
+
+
+
+  <div class="commit-tease js-details-container">
+    <span class="float-right">
+      Latest commit
+      <a class="commit-tease-sha" href="/ftctechnh/ftc_app/commit/a337d8124b93802804d6d23aadea957373543862" data-pjax>
+        a337d81
+      </a>
+      <span itemprop="dateModified"><relative-time datetime="2016-12-17T02:15:03Z">Dec 16, 2016</relative-time></span>
+    </span>
+
+
+    <span class="commit-author-section">
+      <img alt="@ftctechnh" class="avatar" height="20" src="https://avatars0.githubusercontent.com/u/12596789?v=3&amp;s=40" width="20" />
+      <a href="/ftctechnh" class="user-mention" rel="author">ftctechnh</a>
+    </span>
+
+        <a href="/ftctechnh/ftc_app/commit/a337d8124b93802804d6d23aadea957373543862" class="message" data-pjax="true" title="Merge branch &#39;beta&#39; (release v2.4) into master branch.">Merge branch 'beta' (release v2.4) into master branch.</a>
+    </span>
+
+  </div>
+
+
+<div class="file-wrap">
+
+  <a href="/ftctechnh/ftc_app/tree/a337d8124b93802804d6d23aadea957373543862" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+  <table class="files js-navigation-container js-active-navigation-container" data-pjax>
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/.github" class="js-navigation-open" id="01777e4a9846fea5f3fcc8fe40d44680-521d9f4d55f3fe05f2a1d3b6d1f933c2c6f8a55e" title=".github">.github</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/295a9e41f948791a7abc9d0a49f94a7d6aed5a22" class="message" data-pjax="true" title="Added guidelines for contributing to the repository and issuing pull requests.">Added guidelines for contributing to the repository and issuing pull …</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-11-12T01:33:04Z">Nov 12, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/FtcRobotController" class="js-navigation-open" id="a17ace2f42eae37ebab2bbdd63234f06-e2be926e4476fb5a75cdb98a012ea245bce66328" title="FtcRobotController">FtcRobotController</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/d74a01c6920575bcaadb5eec83be4a4b387fa525" class="message" data-pjax="true" title="Changes for release v2.4.">Changes for release v2.4.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-11-13T12:49:15Z">Nov 13, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/TeamCode" class="js-navigation-open" id="1b15e9366460fc5306a6c7b77ba01a43-35de049a577ee67a1c3a2d8f79bae6c135718894" title="TeamCode">TeamCode</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/d66c8dc45672fb6e1d64752eff34e684da934780" class="message" data-pjax="true" title="v2.2 (released on 20160908)">v2.2 (released on 20160908)</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-09-08T23:36:40Z">Sep 8, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/doc" class="js-navigation-open" id="9a09b4dfda82e3e665e31092d1c3ec8d-69efa56b257d629f2de133e4aa3a7701880ed5fe" title="doc">doc</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/f79c4deab8b889fcd7e54903f342aec941ee72f5" class="message" data-pjax="true" title="Updated javadoc for v2.4.">Updated javadoc for v2.4.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-11-13T12:50:08Z">Nov 13, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/gradle/wrapper" class="js-navigation-open" id="04f339d50ad8be9d7500be3f70cd5d57-fd27ff9db6ba81d1631e2b72c79fc0fb1c9a2544" title="This path skips through empty directories"><span class="simplified-path">gradle/</span>wrapper</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/df3c7e9c0f5e04e39b108dacbdcb1d206fe88033" class="message" data-pjax="true" title="Release v2.1 (160903).">Release v2.1 (160903).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-09-03T20:41:55Z">Sep 3, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/tree/master/libs" class="js-navigation-open" id="cb4cb2401e6e43cf74a54523b8da5f02-b1537ca5a5caf1ef481011daa8cd0da649d9f6f8" title="libs">libs</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/d74a01c6920575bcaadb5eec83be4a4b387fa525" class="message" data-pjax="true" title="Changes for release v2.4.">Changes for release v2.4.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-11-13T12:49:15Z">Nov 13, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/.gitignore" class="js-navigation-open" id="a084b794bc0759e7a6b77810e01874f2-3ba54c9ff83a9e753ce3ff4f9f5cd3a74b2ff770" title=".gitignore">.gitignore</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/dcefb832f0da416d12ddc37f33ee44d05d2fa7d6" class="message" data-pjax="true" title="corrected .gitignore error.">corrected .gitignore error.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2015-08-31T12:44:55Z">Aug 31, 2015</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/README.md" class="js-navigation-open" id="04c6e90faac2675aa89e2176d2eec7d8-5583e54a06f9034a489e12e5232cd8a8da9d6c1e" title="README.md">README.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/a337d8124b93802804d6d23aadea957373543862" class="message" data-pjax="true" title="Merge branch &#39;beta&#39; (release v2.4) into master branch.">Merge branch 'beta' (release v2.4) into master branch.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-12-17T02:15:03Z">Dec 17, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/build.common.gradle" class="js-navigation-open" id="893753256a25b1609b37472a317adbc6-e22d42a01485416c3d5b29d3a9acb8c525b2f0ae" title="build.common.gradle">build.common.gradle</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/d74a01c6920575bcaadb5eec83be4a4b387fa525" class="message" data-pjax="true" title="Changes for release v2.4.">Changes for release v2.4.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-11-13T12:49:15Z">Nov 13, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/build.gradle" class="js-navigation-open" id="c197962302397baf3a4cc36463dce5ea-d5d42f9cd66ea8210ac48156d106c5ed6cb0521d" title="build.gradle">build.gradle</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/df3c7e9c0f5e04e39b108dacbdcb1d206fe88033" class="message" data-pjax="true" title="Release v2.1 (160903).">Release v2.1 (160903).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-09-03T20:41:55Z">Sep 3, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/gradlew" class="js-navigation-open" id="36ffbd2ea7085cf19547193a7faf30c8-91a7e269e19dfc62e27137a0b57ef3e430cee4fd" title="gradlew">gradlew</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/3180689564b0d6e768e5033f3fb053031ccf484e" class="message" data-pjax="true" title="added gradlew files back (sorry about this again...).">added gradlew files back (sorry about this again...).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-09-08T23:57:31Z">Sep 8, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/gradlew.bat" class="js-navigation-open" id="c9b677a57d25a366595a35b2230d0502-aec99730b4e8fcd90b57a0e8e01544fea7c31a89" title="gradlew.bat">gradlew.bat</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/3180689564b0d6e768e5033f3fb053031ccf484e" class="message" data-pjax="true" title="added gradlew files back (sorry about this again...).">added gradlew files back (sorry about this again...).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-09-08T23:57:31Z">Sep 8, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-hidden="true" class="octicon octicon-file-text" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ftctechnh/ftc_app/blob/master/settings.gradle" class="js-navigation-open" id="88b7c47e47b8ee65263b6784b86fa0a7-9e2cfb3b4b03d47b483bfbd1c801fc134d17cea0" title="settings.gradle">settings.gradle</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a href="/ftctechnh/ftc_app/commit/a0dee0e26d0e587da4e28b1fe2e349917eabb976" class="message" data-pjax="true" title="v 2.0 (released on 20160819).">v 2.0 (released on 20160819).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-08-19T19:46:42Z">Aug 19, 2016</time-ago></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+  <div id="readme" class="readme boxed-group clearfix announce instapaper_body md">
+    <h3>
+      <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+      README.md
+    </h3>
+
+      <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-ftc_app" class="anchor" href="#ftc_app" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ftc_app</h1>
+
+<p>FTC Android Studio project to create FTC Robot Controller app.</p>
+
+<p>This is the FTC SDK that can be used to create an FTC Robot Controller app, with custom op modes.
+The FTC Robot Controller app is designed to work in conjunction with the FTC Driver Station app.
+The FTC Driver Station app is available through Google Play.</p>
+
+<p>To use this SDK, download/clone the entire project to your local computer.
+Use Android Studio to import the folder  ("Import project (Eclipse ADT, Gradle, etc.)").</p>
+
+<p>The Javadoc reference documentation for the FTC SDK is now available online.  Visit the following URL to view the FTC SDK documentation as a live website:</p>
+
+<p><a href="http://ftctechnh.github.io/ftc_app/doc/javadoc/index.html">http://ftctechnh.github.io/ftc_app/doc/javadoc/index.html</a></p>
+
+<p>Documentation for the FTC SDK is also included with this repository.  There is a subfolder called "doc" which contains several subfolders:</p>
+
+<ul>
+<li>The folder "apk" contains the .apk files for the FTC Driver Station and FTC Robot Controller apps.</li>
+<li>The folder "javadoc" contains the JavaDoc user documentation for the FTC SDK.</li>
+<li>The folder "tutorial" contains PDF files that help teach the basics of using the FTC SDK.</li>
+</ul>
+
+<p>For technical questions regarding the SDK, please visit the FTC Technology forum:</p>
+
+<p><a href="http://ftcforum.usfirst.org/forumdisplay.php?156-FTC-Technology">http://ftcforum.usfirst.org/forumdisplay.php?156-FTC-Technology</a></p>
+
+<hr>
+
+<p>Version 2.4 (released on 16.11.13)</p>
+
+<ul>
+<li>Fix to avoid crashing for nonexistent resources.</li>
+<li>Blocks Programming mode changes:
+
+<ul>
+<li>Added blocks to support OpenGLMatrix, MatrixF, and VectorF.</li>
+<li>Added blocks to support AngleUnit, AxesOrder, AxesReference, CameraDirection, CameraMonitorFeedback, DistanceUnit, and TempUnit.</li>
+<li>Added blocks to support Acceleration.</li>
+<li>Added blocks to support LinearOpMode.getRuntime.</li>
+<li>Added blocks to support MagneticFlux and Position.</li>
+<li>Fixed typos.</li>
+<li>Made blocks for ElapsedTime more consistent with other objects.</li>
+<li>Added blocks to support Quaternion, Velocity, Orientation, AngularVelocity.</li>
+<li>Added blocks to support VuforiaTrackables, VuforiaTrackable, VuforiaLocalizer, VuforiaTrackableDefaultListener.</li>
+<li>Fixed a few blocks.</li>
+<li>Added type checking to new blocks.</li>
+<li>Updated to latest blockly.</li>
+<li>Added default variable blocks to navigation and matrix blocks.</li>
+<li>Fixed toolbox entry for openGLMatrix_rotation_withAxesArgs.</li>
+<li>When user downloads Blocks-generated op mode, only the .blk file is downloaded.</li>
+<li>When user uploads Blocks-generated op mode (.blk file), Javascript code is auto generated.</li>
+<li>Added DbgLog support.</li>
+<li>Added logging when a blocks file is read/written.</li>
+<li>Fixed bug to properly render blocks even if missing devices from configuration file.</li>
+<li>Added support for additional characters (not just alphanumeric) for the block file names (for download and upload).</li>
+<li>Added support for OpMode flavor (“Autonomous” or “TeleOp”) and group.</li>
+</ul></li>
+<li>Changes to Samples to prevent tutorial issues.</li>
+<li>Incorporated suggested changes from public pull 216 (“Replace .. paths”).</li>
+<li>Remove Servo Glitches when robot stopped.</li>
+<li>if user hits “Cancels” when editing a configuration file, clears the unsaved changes and reverts to original unmodified configuration.</li>
+<li>Added log info to help diagnose why the Robot Controller app was terminated (for example, by watch dog function).</li>
+<li>Added ability to transfer log from the controller.</li>
+<li>Fixed inconsistency for AngularVelocity</li>
+<li>Limit unbounded growth of data for telemetry.  If user does not call telemetry.update() for LinearOpMode in a timely manner, data added for telemetry might get lost if size limit is exceeded.</li>
+</ul>
+
+<hr>
+
+<p>Version 2.35 (released on 16.10.06)</p>
+
+<ul>
+<li>Blockly programming mode - Removed unnecesary idle() call from blocks for new project.</li>
+</ul>
+
+<hr>
+
+<p>Version 2.30 (released on 16.10.05)</p>
+
+<ul>
+<li>Blockly programming mode:
+
+<ul>
+<li>Mechanism added to save Blockly op modes from Programming Mode Server onto local device</li>
+<li>To avoid clutter, blocks are displayed in categorized folders</li>
+<li>Added support for DigitalChannel</li>
+<li>Added support for ModernRoboticsI2cCompassSensor</li>
+<li>Added support for ModernRoboticsI2cRangeSensor</li>
+<li>Added support for VoltageSensor</li>
+<li>Added support for AnalogInput</li>
+<li>Added support for AnalogOutput</li>
+<li>Fix for CompassSensor setMode block</li>
+</ul></li>
+<li>Vuforia
+
+<ul>
+<li>Fix deadlock / make camera data available while Vuforia is running.</li>
+<li>Update to Vuforia 6.0.117 (recommended by Vuforia and Google to close security loophole). </li>
+</ul></li>
+<li>Fix for autonomous 30 second timer bug (where timer was in effect, even though it appeared to have timed out).</li>
+<li>opModeIsActive changes to allow cleanup after op mode is stopped (with enforced 2 second safety timeout).</li>
+<li>Fix to avoid reading i2c twice.</li>
+<li>Updated sample Op Modes.</li>
+<li>Improved logging and fixed intermittent freezing.</li>
+<li>Added digital I/O sample.</li>
+<li>Cleaned up device names in sample op modes to be consistent with Pushbot guide.</li>
+<li>Fix to allow use of IrSeekerSensorV3.</li>
+</ul>
+
+<hr>
+
+<p>Version 2.20 (released on 16.09.08)</p>
+
+<ul>
+<li>Support for Modern Robotics Compass Sensor.</li>
+<li>Support for Modern Robotics Range Sensor.</li>
+<li>Revise device names for Pushbot templates to match the names used in Pushbot guide.</li>
+<li>Fixed bug so that IrSeekerSensorV3 device is accessible as IrSeekerSensor in hardwareMap.</li>
+<li>Modified computer vision code to require an individual Vuforia license (per legal requirement from PTC).</li>
+<li>Minor fixes.</li>
+<li>Blockly enhancements:
+
+<ul>
+<li>Support for Voltage Sensor.</li>
+<li>Support for Analog Input.</li>
+<li>Support for Analog Output.</li>
+<li>Support for Light Sensor.</li>
+<li>Support for Servo Controller.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>Version 2.10 (released on 16.09.03)</p>
+
+<ul>
+<li>Support for Adafruit IMU.</li>
+<li>Improvements to ModernRoboticsI2cGyro class
+
+<ul>
+<li>Block on reset of z axis.</li>
+<li>isCalibrating() returns true while gyro is calibration.</li>
+</ul></li>
+<li>Updated sample gyro program.</li>
+<li>Blockly enhancements
+
+<ul>
+<li>support for android.graphics.Color.</li>
+<li>added support for ElapsedTime.</li>
+<li>improved look and legibility of blocks.</li>
+<li>support for compass sensor.</li>
+<li>support for ultrasonic sensor.</li>
+<li>support for IrSeeker.</li>
+<li>support for LED.</li>
+<li>support for color sensor.</li>
+<li>support for CRServo</li>
+<li>prompt user to configure robot before using programming mode.</li>
+</ul></li>
+<li>Provides ability to disable audio cues.</li>
+<li>various bug fixes and improvements.</li>
+</ul>
+
+<hr>
+
+<p>Version 2.00 (released on 16.08.19)</p>
+
+<ul>
+<li>This is the new release for the upcoming 2016-2017 FIRST Tech Challenge Season.</li>
+<li>Channel change is enabled in the FTC Robot Controller app for Moto G 2nd and 3rd Gen phones.</li>
+<li>Users can now use annotations to register/disable their Op Modes.</li>
+<li>Changes in the Android SDK, JDK and build tool requirements (minsdk=19, java 1.7, build tools 23.0.3).</li>
+<li>Standardized units in analog input.</li>
+<li>Cleaned up code for existing analog sensor classes.</li>
+<li>setChannelMode and getChannelMode were REMOVED from the DcMotorController class.  This is important - we no longer set the motor modes through the motor controller.</li>
+<li>setMode and getMode were added to the DcMotor class.<br></li>
+<li>ContinuousRotationServo class has been added to the FTC SDK.</li>
+<li>Range.clip() method has been overloaded so it can support this operation for int, short and byte integers.</li>
+<li>Some changes have been made (new methods added) on how a user can access items from the hardware map.</li>
+<li>Users can now set the zero power behavior for a DC motor so that the motor will brake or float when power is zero.</li>
+<li>Prototype Blockly Programming Mode has been added to FTC Robot Controller.  Users can place the Robot Controller into this mode, and then use a device (such as a laptop) that has a Javascript enabled browser to write Blockly-based Op Modes directly onto the Robot Controller.</li>
+<li>Users can now configure the robot remotely through the FTC Driver Station app.</li>
+<li>Android Studio project supports Android Studio 2.1.x and compile SDK Version 23 (Marshmallow).</li>
+<li>Vuforia Computer Vision SDK integrated into FTC SDK.  Users can use sample vision targets to get localization information on a standard FTC field.</li>
+<li>Project structure has been reorganized so that there is now a TeamCode package that users can use to place their local/custom Op Modes into this package.</li>
+<li>Inspection function has been integrated into the FTC Robot Controller and Driver Station Apps (Thanks Team HazMat… 9277 &amp; 10650!).</li>
+<li>Audio cues have been incorporated into FTC SDK.</li>
+<li>Swap mechanism added to FTC Robot Controller configuration activity.  For example, if you have two motor controllers on a robot, and you misidentified them in your configuration file, you can use the Swap button to swap the devices within the configuration file (so you do not have to manually re-enter in the configuration info for the two devices).</li>
+<li>Fix mechanism added to all user to replace an electronic module easily.  For example, suppose a servo controller dies on your robot. You replace the broken module with a new module, which has a different serial number from the original servo controller.  You can use the Fix button to automatically reconfigure your configuration file to use the serial number of the new module.</li>
+<li>Improvements made to fix resiliency and responsiveness of the system.</li>
+<li>For LinearOpMode the user now must for a telemetry.update() to update the telemetry data on the driver station.  This update() mechanism ensures that the driver station gets the updated data properly and at the same time.</li>
+<li>The Auto Configure function of the Robot Controller is now template based.  If there is a commonly used robot configuration, a template can be created so that the Auto Configure mechanism can be used to quickly configure a robot of this type.</li>
+<li>The logic to detect a runaway op mode (both in the LinearOpMode and OpMode types) and to abort the run, then auto recover has been improved/implemented.</li>
+<li>Fix has been incorporated so that Logitech F310 gamepad mappings will be correct for Marshmallow users.</li>
+</ul>
+
+<hr>
+
+<p>Release 16.07.08</p>
+
+<ul>
+<li>For the ftc_app project, the gradle files have been modified to support Android Studio 2.1.x.</li>
+</ul>
+
+<hr>
+
+<p>Release 16.03.30</p>
+
+<ul>
+<li>For the MIT App Inventor, the design blocks have new icons that better represent the function of each design component.</li>
+<li>Some changes were made to the shutdown logic to ensure the robust shutdown of some of our USB services.</li>
+<li>A change was made to LinearOpMode so as to allow a given instance to be executed more than once, which is required for the App Inventor.</li>
+<li>Javadoc improved/updated.</li>
+</ul>
+
+<hr>
+
+<p>Release 16.03.09</p>
+
+<ul>
+<li>Changes made to make the FTC SDK synchronous (significant change!)
+
+<ul>
+<li>waitOneFullHardwareCycle() and waitForNextHardwareCycle() are no longer needed and have been deprecated.</li>
+<li>runOpMode() (for a LinearOpMode) is now decoupled from the system's hardware read/write thread.</li>
+<li>loop() (for an OpMode) is now decoupled from the system's hardware read/write thread.</li>
+<li>Methods are synchronous.</li>
+<li>For example, if you call setMode(DcMotorController.RunMode.RESET_ENCODERS) for a motor, the encoder is guaranteed to be reset when the method call is complete.</li>
+<li>For legacy module (NXT compatible), user no longer has to toggle between read and write modes when reading from or writing to a legacy device.</li>
+</ul></li>
+<li>Changes made to enhance reliability/robustness during ESD event.</li>
+<li>Changes made to make code thread safe.</li>
+<li>Debug keystore added so that user-generated robot controller APKs will all use the same signed key (to avoid conflicts if a team has multiple developer laptops for example).</li>
+<li>Firmware version information for Modern Robotics modules are now logged.</li>
+<li>Changes made to improve USB comm reliability and robustness.</li>
+<li>Added support for voltage indicator for legacy (NXT-compatible) motor controllers.</li>
+<li>Changes made to provide auto stop capabilities for op modes.
+
+<ul>
+<li>A LinearOpMode class will stop when the statements in runOpMode() are complete.  User does not have to push the stop button on the driver station.</li>
+<li>If an op mode is stopped by the driver station, but there is a run away/uninterruptible thread persisting, the app will log an error message then force itself to crash to stop the runaway thread.</li>
+</ul></li>
+<li>Driver Station UI modified to display lowest measured voltage below current voltage (12V battery).</li>
+<li>Driver Station UI modified to have color background for current voltage (green=good, yellow=caution, red=danger, extremely low voltage).</li>
+<li>javadoc improved (edits and additional classes).</li>
+<li>Added app build time to About activity for driver station and robot controller apps.</li>
+<li>Display local IP addresses on Driver Station About activity.</li>
+<li>Added I2cDeviceSynchImpl.</li>
+<li>Added I2cDeviceSync interface.</li>
+<li>Added seconds() and milliseconds() to ElapsedTime for clarity.</li>
+<li>Added getCallbackCount() to I2cDevice.</li>
+<li>Added missing clearI2cPortActionFlag.</li>
+<li>Added code to create log messages while waiting for LinearOpMode shutdown.</li>
+<li>Fix so Wifi Direct Config activity will no longer launch multiple times.</li>
+<li>Added the ability to specify an alternate i2c address in software for the Modern Robotics gyro.</li>
+</ul>
+
+<hr>
+
+<p>Release 16.02.09</p>
+
+<ul>
+<li>Improved battery checker feature so that voltage values get refreshed regularly (every 250 msec) on Driver Station (DS) user interface.</li>
+<li>Improved software so that Robot Controller (RC) is much more resilient and “self-healing” to USB disconnects:
+
+<ul>
+<li>If user attempts to start/restart RC with one or more module missing, it will display a warning but still start up.</li>
+<li>When running an op mode, if one or more modules gets disconnected, the RC &amp; DS will display warnings,and robot will keep on working in spite of the missing module(s).</li>
+<li>If a disconnected module gets physically reconnected the RC will auto detect the module and the user will regain control of the recently connected module.</li>
+<li>Warning messages are more helpful (identifies the type of module that’s missing plus its USB serial number).<br></li>
+</ul></li>
+<li>Code changes to fix the null gamepad reference when users try to reference the gamepads in the init() portion of their op mode.</li>
+<li>NXT light sensor output is now properly scaled.  Note that teams might have to readjust their light threshold values in their op modes.</li>
+<li>On DS user interface, gamepad icon for a driver will disappear if the matching gamepad is disconnected or if that gamepad gets designated as a different driver.</li>
+<li>Robot Protocol (ROBOCOL) version number info is displayed in About screen on RC and DS apps.</li>
+<li>Incorporated a display filter on pairing screen to filter out devices that don’t use the “-“ format. This filter can be turned off to show all WiFi Direct devices.</li>
+<li>Updated text in License file.</li>
+<li>Fixed formatting error in OpticalDistanceSensor.toString().</li>
+<li>Fixed issue on with a blank (“”) device name that would disrupt WiFi Direct Pairing.</li>
+<li>Made a change so that the WiFi info and battery info can be displayed more quickly on the DS upon connecting to RC.</li>
+<li>Improved javadoc generation.</li>
+<li>Modified code to make it easier to support language localization in the future.</li>
+</ul>
+
+<hr>
+
+<p>Release 16.01.04</p>
+
+<ul>
+<li>Updated compileSdkVersion for apps</li>
+<li>Prevent Wifi from entering power saving mode</li>
+<li>removed unused import from driver station</li>
+<li>Corrrected "Dead zone" joystick code.</li>
+<li>LED.getDeviceName and .getConnectionInfo() return null</li>
+<li>apps check for ROBOCOL_VERSION mismatch</li>
+<li>Fix for Telemetry also has off-by-one errors in its data string sizing / short size limitations error</li>
+<li>User telemetry output is sorted.</li>
+<li>added formatting variants to DbgLog and RobotLog APIs</li>
+<li>code modified to allow for a long list of op mode names.</li>
+<li>changes to improve thread safety of RobocolDatagramSocket</li>
+<li>Fix for "missing hardware leaves robot controller disconnected from driver station" error</li>
+<li>fix for "fast tapping of Init/Start causes problems" (toast is now only instantiated on UI thread).</li>
+<li>added some log statements for thread life cycle.</li>
+<li>moved gamepad reset logic inside of initActiveOpMode() for robustness</li>
+<li>changes made to mitigate risk of race conditions on public methods.</li>
+<li>changes to try and flag when WiFi Direct name contains non-printable characters.</li>
+<li>fix to correct race condition between .run() and .close() in ReadWriteRunnableStandard.</li>
+<li>updated FTDI driver</li>
+<li>made ReadWriteRunnableStanard interface public.</li>
+<li>fixed off-by-one errors in Command constructor</li>
+<li>moved specific hardware implmentations into their own package.</li>
+<li>moved specific gamepad implemnatations to the hardware library.</li>
+<li>changed LICENSE file to new BSD version.</li>
+<li>fixed race condition when shutting down Modern Robotics USB devices.</li>
+<li>methods in the ColorSensor classes have been synchronized.</li>
+<li>corrected isBusy() status to reflect end of motion.</li>
+<li>corrected "back" button keycode.</li>
+<li>the notSupported() method of the GyroSensor class was changed to protected (it should not be public).</li>
+</ul>
+
+<hr>
+
+<p>Release 15.11.04.001</p>
+
+<ul>
+<li>Added Support for Modern Robotics Gyro.
+
+<ul>
+<li>The GyroSensor class now supports the MR Gyro Sensor.</li>
+<li>Users can access heading data (about Z axis)</li>
+<li>Users can also access raw gyro data (X, Y, &amp; Z axes).</li>
+<li>Example MRGyroTest.java op mode included.</li>
+</ul></li>
+<li>Improved error messages
+
+<ul>
+<li>More descriptive error messages for exceptions in user code.</li>
+</ul></li>
+<li>Updated DcMotor API</li>
+<li>Enable read mode on new address in setI2cAddress</li>
+<li>Fix so that driver station app resets the gamepads when switching op modes.</li>
+<li>USB-related code changes to make USB comm more responsive and to display more explicit error messages.
+
+<ul>
+<li>Fix so that USB will recover properly if the USB bus returns garbage data.</li>
+<li>Fix USB initializtion race condition.</li>
+<li>Better error reporting during FTDI open.</li>
+<li>More explicit messages during USB failures.</li>
+<li>Fixed bug so that USB device is closed if event loop teardown method was not called.</li>
+</ul></li>
+<li>Fixed timer UI issue</li>
+<li>Fixed duplicate name UI bug (Legacy Module configuration).</li>
+<li>Fixed race condition in EventLoopManager.</li>
+<li>Fix to keep references stable when updating gamepad.</li>
+<li>For legacy Matrix motor/servo controllers removed necessity of appending "Motor" and "Servo" to controller names.</li>
+<li>Updated HT color sensor driver to use constants from ModernRoboticsUsbLegacyModule class.</li>
+<li>Updated MR color sensor driver to use constants from ModernRoboticsUsbDeviceInterfaceModule class. </li>
+<li>Correctly handle I2C Address change in all color sensors</li>
+<li>Updated/cleaned up op modes.
+
+<ul>
+<li>Updated comments in LinearI2cAddressChange.java example op mode.</li>
+<li>Replaced the calls to "setChannelMode" with "setMode" (to match the new of the DcMotor  method).</li>
+<li>Removed K9AutoTime.java op mode.</li>
+<li>Added MRGyroTest.java op mode (demonstrates how to use MR Gyro Sensor).</li>
+<li>Added MRRGBExample.java op mode (demonstrates how to use MR Color Sensor).</li>
+<li>Added HTRGBExample.java op mode (demonstrates how to use HT legacy color sensor).</li>
+<li>Added MatrixControllerDemo.java (demonstrates how to use legacy Matrix controller).</li>
+</ul></li>
+<li>Updated javadoc documentation.</li>
+<li>Updated release .apk files for Robot Controller and Driver Station apps.</li>
+</ul>
+
+<p>T. Eng
+November 5, 2015</p>
+
+<hr>
+
+<p>Release 15.10.06.002</p>
+
+<ul>
+<li>Added support for Legacy Matrix 9.6V motor/servo controller.</li>
+<li>Cleaned up build.gradle file.</li>
+<li>Minor UI and bug fixes for driver station and robot controller apps.</li>
+<li>Throws error if Ultrasonic sensor (NXT) is not configured for legacy module port 4 or 5.</li>
+</ul>
+
+<p>T. Eng
+October 6, 2015</p>
+
+<hr>
+
+<p>In this latest version of the FTC SDK (20150803_001) the following changes should be noted:</p>
+
+<ul>
+<li>New user interfaces for FTC Driver Station and FTC Robot Controller apps.</li>
+<li>An init() method is added to the OpMode class.
+
+<ul>
+<li>For this release, init() is triggered right before the start() method.</li>
+<li>Eventually, the init() method will be triggered when the user presses an "INIT" button on driver station.</li>
+<li>The init() and loop() methods are now required (i.e., need to be overridden in the user's op mode).</li>
+<li>The start() and stop() methods are optional.</li>
+</ul></li>
+<li>A new LinearOpMode class is introduced.
+
+<ul>
+<li>Teams can use the LinearOpMode mode to create a linear (not event driven) program model.</li>
+<li>Teams can use blocking statements like Thread.sleep() within a linear op mode.</li>
+</ul></li>
+<li>The API for the Legacy Module and Core Device Interface Module have been updated.
+
+<ul>
+<li>Support for encoders with the Legacy Module is now working.</li>
+</ul></li>
+<li>The hardware loop has been updated for better performance.</li>
+</ul>
+
+<p>T. Eng
+August 3, 2015</p>
+</article>
+  </div>
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+
+    </div>
+  </div>
+
+    </div>
+
+        <div class="container site-footer-container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links float-right">
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="site-footer-mark" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2017 <span title="0.11174s from github-fe162-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+    
+
+    <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+        <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+      </button>
+      You can't perform that action at this time.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/compat-30ce4c86c27f88c3d1b4eb03efda59b45d8d7c871880dee0b8f73d5ef1b25fdf.js"></script>
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-f9c5da22b063d53ac49cfaa291f61844769c2454361a7317cc9b934a8f3a00a4.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-ff8f0321b42468277c15b2891849bcb398cea68dbf2f88f92d9f9163eba6b525.js"></script>
+      
+      
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+    <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+  </body>
+</html>
+
