@@ -159,30 +159,6 @@ public class AutonomousOmniRed extends LinearOpMode {
             this.sleep(1);
         }
     }
-
-    public boolean RightRedI() throws InterruptedException{
-        if (color_left.red() < 5.1 && color_left.blue() < 5.1 && color_left.blue() != color_left.red()) {
-            return color_left.red() > color_left.blue();
-        }
-        else {
-            sleepOpMode(1);
-            return RightRedI();
-        }
-    }
-
-    public boolean RightRed() throws InterruptedException{
-        boolean redI = RightRedI();
-        sleepOpMode(150);
-        if (redI == RightRedI()) {
-            return redI;
-        }
-        else {
-            sleepOpMode(150);
-            telemetry.addLine("No Agreement");
-            telemetry.update();
-            return RightRed();
-        }
-    }
 }
 
 
