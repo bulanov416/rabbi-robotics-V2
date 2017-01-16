@@ -1,6 +1,4 @@
-package org.firstinspires.ftc.teamcode;
-
-
+package org.firstinspires.ftc.teamcode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -12,14 +10,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import com.qualcomm.robotcore.util.Range;
 
-
-
-
-
 /**
-
  * Created by alexbulanov on 9/28/16.
-
  */
 
 @TeleOp(name = "Drive")
@@ -32,11 +24,11 @@ public class Drive extends LinearOpMode {
     Servo button_left;
     Servo button_right;
 
-
     public Drive() {}
 
-    double scale_motor_power(double p_power)  //Scales joystick value to output appropriate motor power
-    {                                          //Use like "scale_motor_power(gamepad1.left_stick_x)"
+    double scale_motor_power(double p_power) {
+        //Scales joystick value to output appropriate motor power
+        // Use like "scale_motor_power(gamepad1.left_stick_x)"
         //
         // Assume no scaling
         //
@@ -51,7 +43,6 @@ public class Drive extends LinearOpMode {
                         , 0.43, 0.50, 0.60, 0.72, 0.85
                         , 1.00, 1.00
                 };
-
         //
         // Get the corresponding index for the specified argument/parameter.
         //
