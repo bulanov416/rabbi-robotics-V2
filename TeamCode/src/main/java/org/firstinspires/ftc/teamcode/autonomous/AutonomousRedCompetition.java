@@ -179,7 +179,7 @@ public class AutonomousRedCompetition extends LinearOpMode {
             //Left Turn, minor
             setRightPower(-0.17);
             setLeftPower(0.17);
-            sleepOpMode(350);
+            sleepOpModeSided(350);
             */
             stopDrive();
             if (!opModeIsActive()) break;

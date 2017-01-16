@@ -38,8 +38,8 @@ public class AutonomousOmniRed extends LinearOpMode {
         eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
         color_left = hardwareMap.colorSensor.get("cl");
-        r.setDirection(DcMotor.Direction.REVERSE);
-        rb.setDirection(DcMotor.Direction.REVERSE);
+        l.setDirection(DcMotor.Direction.REVERSE);
+        lb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
 
@@ -70,7 +70,7 @@ public class AutonomousOmniRed extends LinearOpMode {
             if (!opModeIsActive()) break;
             stopDrive();
             //Wiggle Line-Follower
-            while (!touch.isPressed()) {
+            while (!touch.isPressed() && opModeIsActive()) {
                 drive(0.2);
             }
             stopDrive();

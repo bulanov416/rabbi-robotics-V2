@@ -41,8 +41,8 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
         color_left = hardwareMap.colorSensor.get("cl");
-        r.setDirection(DcMotor.Direction.REVERSE);
-        rb.setDirection(DcMotor.Direction.REVERSE);
+        l.setDirection(DcMotor.Direction.REVERSE);
+        lb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
 
@@ -120,17 +120,11 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         r.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
-        while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) {
-            drive(0.2);
-        }
+        while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) { drive(0.2); }
         if (!opModeIsActive()) return;
-        while(eodsBack.getLightDetected() < 0.03 && opModeIsActive()) {
-            drive(0.12);
-        }
+        while(eodsBack.getLightDetected() < 0.03 && opModeIsActive()) { drive(0.12); }
         if (!opModeIsActive()) return;
-        while(eodsBack.getLightDetected() > 0.03 && opModeIsActive()) {
-            drive(0.12);
-        }
+        while(eodsBack.getLightDetected() > 0.03 && opModeIsActive()) { drive(0.12); }
         stopDrive();
         while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) {
             lb.setPower(-0.15);
@@ -139,9 +133,7 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         if (!opModeIsActive()) return;
         stopDrive();
         //Move to wall
-        while (!touch.isPressed()) {
-            drive(0.2);
-        }
+        while (!touch.isPressed() && opModeIsActive()) { drive(0.2); }
         stopDrive();
         if (!opModeIsActive()) return;
         //Gets First's Beacon color, true if red, false if blue
@@ -155,11 +147,8 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         wall_servo.setPosition(0.1);
         if (!opModeIsActive()) return;
         //Deploys pusher servos
-        if (colorFirstSide) {
-            button_right.setPosition(0.95);
-        } else {
-            button_left.setPosition(0.05);
-        }
+        if (colorFirstSide) { button_right.setPosition(0.95);
+        } else { button_left.setPosition(0.05); }
         //Waits for servos to move
         sleepOpMode(350);
         if (!opModeIsActive()) return;
