@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Created by alexbulanov on 12/19/16.
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Blue Auto Comp")
-public class AutonomousBlue extends LinearOpMode {
+public class AutonomousBlueCompetition extends LinearOpMode {
 
 
     DcMotor l;
