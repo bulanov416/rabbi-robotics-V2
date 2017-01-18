@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.Range;
 
  */
 
-@TeleOp(name = "Drive")
+@TeleOp(name = "DriveAuto")
 public class DriveAutoBeacon extends LinearOpMode {
     DcMotor l;
     DcMotor r;
@@ -27,11 +27,11 @@ public class DriveAutoBeacon extends LinearOpMode {
     OpticalDistanceSensor eodsBack;
     OpticalDistanceSensor eodsFore;
     ColorSensor color_left;
-    ColorSensor color_right;
     Servo button_left;
     Servo button_right;
     Servo wall_servo;
     TouchSensor touch;
+    boolean autoOn = false;
 
     public DriveAutoBeacon() {}
 
@@ -72,25 +72,24 @@ public class DriveAutoBeacon extends LinearOpMode {
     }
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException{
+        l = hardwareMap.dcMotor.get("l");
+        r = hardwareMap.dcMotor.get("r");
+        rb = hardwareMap.dcMotor.get("rb");
+        lb = hardwareMap.dcMotor.get("lb");
+        lift = hardwareMap.dcMotor.get("lift");
+
+        button_left = hardwareMap.servo.get("bl");
+        button_right = hardwareMap.servo.get("br");
+        eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
+        eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
+        color_left = hardwareMap.colorSensor.get("cl");
+        l.setDirection(DcMotor.Direction.REVERSE);
+        lb.setDirection(DcMotor.Direction.REVERSE);
+        touch = hardwareMap.touchSensor.get("t");
+        wall_servo = hardwareMap.servo.get("ws");
 
         while (opModeIsActive()) {
-            l = hardwareMap.dcMotor.get("l");
-            r = hardwareMap.dcMotor.get("r");
-            rb = hardwareMap.dcMotor.get("rb");
-            lb = hardwareMap.dcMotor.get("lb");
-            lift = hardwareMap.dcMotor.get("lift");
-
-            button_left = hardwareMap.servo.get("bl");
-            button_right = hardwareMap.servo.get("br");
-            eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
-            eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
-            color_left = hardwareMap.colorSensor.get("cl");
-            color_right = hardwareMap.colorSensor.get("cr");
-            l.setDirection(DcMotor.Direction.REVERSE);
-            lb.setDirection(DcMotor.Direction.REVERSE);
-            touch = hardwareMap.touchSensor.get("t");
-            wall_servo = hardwareMap.servo.get("ws");
 
             float l_gp1_left_stick_y = gamepad1.left_stick_y;
             float l_left_drive_power
@@ -99,32 +98,39 @@ public class DriveAutoBeacon extends LinearOpMode {
             float l_gp1_right_stick_y = gamepad1.right_stick_y;
             float l_right_drive_power
                     = (float) scale_motor_power(l_gp1_right_stick_y);
+            if(!autoOn) {
+                r.setPower(l_right_drive_power);
+                l.setPower(l_left_drive_power);
+                rb.setPower(l_right_drive_power);
+                lb.setPower(l_left_drive_power);
+            }
 
-            r.setPower(l_right_drive_power);
-            l.setPower(l_left_drive_power);
-            rb.setPower(l_right_drive_power);
-            lb.setPower(l_left_drive_power);
-
-            if (gamepad1.dpad_up) {
+            if (!autoOn && gamepad1.dpad_up) {
                 lift.setPower(1);
             }
-            if (gamepad1.dpad_down) {
+            if (!autoOn && gamepad1.dpad_down) {
                 lift.setPower(-1);
             }
-            if (gamepad1.y) {
+            if (!autoOn && gamepad1.y) {
                 lift.setPower(0);
             }
-            if (gamepad1.left_bumper) {
+            if (!autoOn && gamepad1.left_bumper) {
                 button_left.setPosition(0.05);
             }
-            if (gamepad1.right_bumper) {
+            if (!autoOn && gamepad1.right_bumper) {
                 button_right.setPosition(0.95 );
             }
-            if (gamepad1.b) {
+            if (!autoOn && gamepad1.b) {
                 button_left.setPosition(0.9);
                 button_right.setPosition(0.1);
             }
 
+            if(!autoOn && gamepad1.right_bumper) {
+                pressBeaconSided("right");
+            }
+            else if(!autoOn && gamepad1.left_bumper) {
+                pressBeaconSided("left");
+            }
         }
     }
     public void drive(double power) {
@@ -155,8 +161,9 @@ public class DriveAutoBeacon extends LinearOpMode {
         }
     }
 
-    public void pressBeaconSided(String side) throws InterruptedException{
+    public boolean pressBeaconSided(String side) throws InterruptedException{
         //Sets Initial Servo Positions
+        autoOn = true;
         wall_servo.setPosition(0.39);
         button_right.setPosition(0.1);
         button_left.setPosition(0.9);
@@ -167,61 +174,65 @@ public class DriveAutoBeacon extends LinearOpMode {
         l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
         while (eodsFore.getLightDetected() < 0.03 && continuePressSided(side)) { drive(0.2); }
-        if (!opModeIsActive()) return;
+        if (!opModeIsActive()) return returnBeaconPress();
         while(eodsBack.getLightDetected() < 0.03 && continuePressSided(side)) { drive(0.12); }
-        if (!opModeIsActive()) return;
+        if (!opModeIsActive()) return returnBeaconPress();
         while(eodsBack.getLightDetected() > 0.03 && continuePressSided(side)) { drive(0.12); }
         stopDrive();
         while (eodsFore.getLightDetected() < 0.03 && continuePressSided(side)) {
             if (side.equalsIgnoreCase("left")) {
-                lb.setPower(-0.15);
-                rb.setPower(0.15);
+                setLeftPower(-0.15);
+                setRightPower(0.15);
             }
             else if (side.equalsIgnoreCase("right")) {
-                lb.setPower(0.15);
-                rb.setPower(-0.15);
+                setLeftPower(0.15);
+                setRightPower(-0.15);
             }
         }
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         stopDrive();
         //Move to wall
         while (!touch.isPressed() && continuePressSided(side)) { drive(0.2); }
         stopDrive();
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         //Gets First's Beacon color, true if red, false if blue
-        String beaconColors = teleBeaconColors();
-        if (beaconColors.equalsIgnoreCase("ar")) { wall_servo.setPosition(0.1); stopDrive(); return; }
-        boolean colorLeftSide = beaconColors.equalsIgnoreCase("lr");
+        boolean colorLeftSide = color_left.red() > color_left.blue();
         //Drives back from Beacon
         drive(-0.12);
         sleepOpModeSided(600, side);
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         stopDrive();
         //Retracts button
         wall_servo.setPosition(0.1);
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         //Deploys pusher servos
         if (colorLeftSide) { button_right.setPosition(0.95);
         } else { button_left.setPosition(0.05); }
         //Waits for servos to move
         sleepOpModeSided(350, side);
         stopDrive();
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         //Drives forward and presses button
         drive(0.13);
         sleepOpModeSided(1525, side);
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         stopDrive();
         //Drives Back
         drive(-0.2);
         sleepOpModeSided(400, side);
         stopDrive();
-        if (!continuePressSided(side)) return;
+        if (!continuePressSided(side)) return returnBeaconPress();
         //Sets Servos
         wall_servo.setPosition(0.37);
         button_right.setPosition(0.1);
         button_left.setPosition(0.9);
         sleepOpModeSided(350, side);
+        return returnBeaconPress();
+    }
+
+    public boolean returnBeaconPress() {
+        autoOn = false;
+        return true;
     }
 
     public boolean continuePressSided(String side) {
@@ -232,21 +243,6 @@ public class DriveAutoBeacon extends LinearOpMode {
         double time = System.currentTimeMillis();
         while (continuePressSided(side) && System.currentTimeMillis() < time + millTime) {
             this.sleep(1);
-        }
-    }
-
-    public String teleBeaconColors() {
-        if (color_left.red() > color_left.blue() && color_left.red() > color_left.blue()) {
-            return "ar";
-        }
-        else if (color_left.red() > color_left.blue()) {
-            return "lr";
-        }
-        else if (color_right.red() > color_right.blue()) {
-            return "rr";
-        }
-        else {
-            return "nr";
         }
     }
 }

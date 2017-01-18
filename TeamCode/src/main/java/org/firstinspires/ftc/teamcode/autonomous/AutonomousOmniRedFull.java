@@ -24,10 +24,13 @@ public class AutonomousOmniRedFull extends LinearOpMode {
     OpticalDistanceSensor eodsBack;
     OpticalDistanceSensor eodsFore;
     ColorSensor color_left;
+    ColorSensor color_down;
     Servo button_left;
     Servo button_right;
     Servo wall_servo;
     TouchSensor touch;
+    final float wheelDiameter = 10f;
+    final float pi = 3.1415f;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -41,6 +44,7 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
         color_left = hardwareMap.colorSensor.get("cl");
+        color_down = hardwareMap.colorSensor.get("cd");
         l.setDirection(DcMotor.Direction.REVERSE);
         lb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
@@ -53,17 +57,36 @@ public class AutonomousOmniRedFull extends LinearOpMode {
             button_right.setPosition(0.1);
             button_left.setPosition(0.9);
             color_left.enableLed(false);
+            color_down.enableLed(true);
             //Press First Beacon
             this.pressBeacon();
             if (!opModeIsActive()) break;
             //Particle Shooting
+            driveEncoder(-0.3, -50);
+            driveEncoder(0.3, 50);
             //Right turn
-            setLeftPower(0.18);
-            setRightPower(-0.18);
-            sleepOpMode(1550);
+            turnEncoder(0.2, 90);
             stopDrive();
             //Press Second Beacon
             this.pressBeacon();
+            //Park on ramp
+            driveEncoder(-0.12, -12);
+            turnEncoder(0.2, -90);
+            drive(0.2);
+            while (color_down.red() <= 3) {
+                sleepOpMode(1);
+            }
+            driveEncoder(0.3, 15);
+            //Park on central vortex
+            /*
+             driveEncoder(-0.12, -12);
+            turnEncoder(0.2, -135);
+            drive(0.2);
+            while (color_down.red() <= 3) {
+                sleepOpMode(1);
+            }
+            driveEncoder(0.3, 8);
+            * */
         }
         stopDrive();
         l.close();
@@ -82,10 +105,68 @@ public class AutonomousOmniRedFull extends LinearOpMode {
 
 
     public void drive(double power) {
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         l.setPower(power);
         r.setPower(power);
         lb.setPower(power);
         rb.setPower(power);
+    }
+
+    public void setMotorModes(DcMotor.RunMode runMode) {
+        lb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        r.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        l.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        lb.setMode(runMode);
+        rb.setMode(runMode);
+        r.setMode(runMode);
+        l.setMode(runMode);
+    }
+//CM forward, power forwards
+    public void driveEncoder(double power, double cm) throws InterruptedException{
+        setMotorModes(DcMotor.RunMode.RUN_USING_ENCODER);
+        l.setPower(power);
+        r.setPower(power);
+        lb.setPower(power);
+        rb.setPower(power);
+        int ticks = (int) (pi * wheelDiameter * 1120 / cm);
+        l.setTargetPosition(ticks);
+        r.setTargetPosition(ticks);
+        lb.setTargetPosition(ticks);
+        rb.setTargetPosition(ticks);
+        while (l.isBusy() || r.isBusy() || lb.isBusy() || rb.isBusy()) {
+            sleepOpMode(1);
+        }
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+//Degrees clockwise, power absolute value
+    public void turnEncoder(double power, double degrees) throws InterruptedException{
+        setMotorModes(DcMotor.RunMode.RUN_USING_ENCODER);
+        int ticks = (int) (pi * wheelDiameter * 1120*360*degrees / 140);
+        if (degrees > 0) {
+            l.setPower(power);
+            r.setPower(-power);
+            lb.setPower(power);
+            rb.setPower(-power);
+            l.setTargetPosition(ticks);
+            r.setTargetPosition(-ticks);
+            lb.setTargetPosition(ticks);
+            rb.setTargetPosition(-ticks);
+        }
+        else {
+            l.setPower(-power);
+            r.setPower(power);
+            lb.setPower(-power);
+            rb.setPower(power);
+            l.setTargetPosition(-ticks);
+            r.setTargetPosition(ticks);
+            lb.setTargetPosition(-ticks);
+            rb.setTargetPosition(ticks);
+        }
+        while (l.isBusy() || r.isBusy() || lb.isBusy() || rb.isBusy()) {
+            sleepOpMode(1);
+        }
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     public void stopDrive() {
@@ -93,11 +174,13 @@ public class AutonomousOmniRedFull extends LinearOpMode {
     }
 
     public void setLeftPower(double power) {
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         l.setPower(power);
         lb.setPower(power);
     }
 
     public void setRightPower(double power) {
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         r.setPower(power);
         rb.setPower(power);
     }
@@ -115,10 +198,7 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         button_right.setPosition(0.1);
         button_left.setPosition(0.9);
         color_left.enableLed(false);
-        lb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        r.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
         while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) { drive(0.2); }
         if (!opModeIsActive()) return;
@@ -127,8 +207,8 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         while(eodsBack.getLightDetected() > 0.03 && opModeIsActive()) { drive(0.12); }
         stopDrive();
         while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) {
-            lb.setPower(-0.15);
-            rb.setPower(0.15);
+            this.setLeftPower(-0.15);
+            this.setRightPower(0.15);
         }
         if (!opModeIsActive()) return;
         stopDrive();
