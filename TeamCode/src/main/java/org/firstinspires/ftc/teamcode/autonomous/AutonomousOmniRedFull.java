@@ -13,7 +13,6 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Created by alexbulanov on 12/19/16.
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Red Auto Full")
-    @Disabled
 public class AutonomousOmniRedFull extends LinearOpMode {
 
 
@@ -129,7 +128,7 @@ public class AutonomousOmniRedFull extends LinearOpMode {
         r.setPower(power);
         lb.setPower(power);
         rb.setPower(power);
-        int ticks = (int) (pi * wheelDiameter * 1120 / cm);
+        int ticks = (int) (cm * 1120 /(pi * wheelDiameter));
         l.setTargetPosition(ticks);
         r.setTargetPosition(ticks);
         lb.setTargetPosition(ticks);
@@ -142,7 +141,7 @@ public class AutonomousOmniRedFull extends LinearOpMode {
 //Degrees clockwise, power absolute value
     public void turnEncoder(double power, double degrees) throws InterruptedException{
         setMotorModes(DcMotor.RunMode.RUN_USING_ENCODER);
-        int ticks = (int) (pi * wheelDiameter * 1120*360*degrees / 140);
+        int ticks = (int) (116 *  1120 * degrees / (pi * wheelDiameter * 360));
         if (degrees > 0) {
             l.setPower(power);
             r.setPower(-power);
