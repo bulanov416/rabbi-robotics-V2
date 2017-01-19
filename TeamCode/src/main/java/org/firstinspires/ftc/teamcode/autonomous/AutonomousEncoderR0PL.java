@@ -12,8 +12,8 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 /**
  * Created by alexbulanov on 12/19/16.
  */
-    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Red Auto Full")
-public class AutonomousOmniRedFull extends LinearOpMode {
+    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "R0PL")
+public class AutonomousEncoderR0PL extends LinearOpMode {
 
 
     DcMotor l;

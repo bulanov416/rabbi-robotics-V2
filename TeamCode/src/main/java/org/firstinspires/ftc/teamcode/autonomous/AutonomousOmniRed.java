@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -12,6 +13,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Created by alexbulanov on 12/19/16.
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Red Auto Omni")
+    @Disabled
 public class AutonomousOmniRed extends LinearOpMode {
 
 
