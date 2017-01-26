@@ -20,6 +20,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
     DcMotor r;
     DcMotor lb;
     DcMotor rb;
+    DcMotor fly;
     OpticalDistanceSensor eodsBack;
     OpticalDistanceSensor eodsFore;
     ColorSensor color_left;
@@ -27,6 +28,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
     Servo button_left;
     Servo button_right;
     Servo wall_servo;
+    Servo fly_servo;
     TouchSensor touch;
     final float wheelDiameter = 10f;
     final float pi = 3.1415f;
@@ -37,6 +39,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
         r = hardwareMap.dcMotor.get("r");
         rb = hardwareMap.dcMotor.get("rb");
         lb = hardwareMap.dcMotor.get("lb");
+        fly = hardwareMap.dcMotor.get("fly");
 
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
@@ -48,7 +51,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
         lb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
-
+        fly_servo = hardwareMap.servo.get("sf");
         waitForStart();
         while (opModeIsActive()) {
             //Sets Initial Servo Positions
@@ -57,12 +60,17 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
             button_left.setPosition(0.9);
             color_left.enableLed(false);
             color_down.enableLed(true);
+            fly_servo.setPosition(0.1);
             //Press First Beacon
             this.pressBeacon();
             if (!opModeIsActive()) break;
             //Particle Shooting
+            fly.setPower(0.6);
             driveEncoder(-0.3, -50);
+            fly_servo.setPosition(0.9);
             driveEncoder(0.3, 50);
+            fly.setPower(0);
+            fly_servo.setPosition(0.1);
             //Right turn
             turnEncoder(0.2, 90);
             stopDrive();
@@ -75,6 +83,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
             while (color_down.red() <= 3) {
                 sleepOpMode(1);
             }
+            stopDrive();
             driveEncoder(0.3, 15);
             //Park on central vortex
             /*
@@ -92,13 +101,16 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
         r.close();
         lb.close();
         rb.close();
+        fly.close();
         button_left.close();
         button_right.close();
         wall_servo.close();
+        fly_servo.close();
         touch.close();
         eodsFore.close();
         eodsBack.close();
         color_left.close();
+        color_down.close();
         stop();
     }
 

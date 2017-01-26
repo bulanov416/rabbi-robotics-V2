@@ -17,25 +17,25 @@ import com.qualcomm.robotcore.util.Range;
 
  */
 
-@TeleOp(name = "DriveAuto")
-public class DriveAutoBeacon extends LinearOpMode {
+@TeleOp(name = "DriveFly")
+public class DriveFly extends LinearOpMode {
     DcMotor l;
     DcMotor r;
     DcMotor lb;
     DcMotor rb;
     DcMotor lift;
     DcMotor fly;
-    OpticalDistanceSensor eodsBack;
-    OpticalDistanceSensor eodsFore;
-    ColorSensor color_left;
     Servo button_left;
     Servo button_right;
-    Servo wall_servo;
-    TouchSensor touch;
     boolean autoOn = false;
     double powerScale = 1;
+    //Servo wall_servo;
+    //TouchSensor touch;
+    //OpticalDistanceSensor eodsBack;
+    //OpticalDistanceSensor eodsFore;
+    //ColorSensor color_left;
 
-    public DriveAutoBeacon() {}
+    public DriveFly() {}
 
     double scale_motor_power(double p_power)  //Scales joystick value to output appropriate motor power
     {                                          //Use like "scale_motor_power(gamepad1.left_stick_x)"
@@ -81,17 +81,15 @@ public class DriveAutoBeacon extends LinearOpMode {
         lb = hardwareMap.dcMotor.get("lb");
         lift = hardwareMap.dcMotor.get("lift");
         fly = hardwareMap.dcMotor.get("fly");
-
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
-        eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
-        color_left = hardwareMap.colorSensor.get("cl");
         l.setDirection(DcMotor.Direction.REVERSE);
         lb.setDirection(DcMotor.Direction.REVERSE);
-        touch = hardwareMap.touchSensor.get("t");
-        wall_servo = hardwareMap.servo.get("ws");
-
+        //touch = hardwareMap.touchSensor.get("t");
+        //wall_servo = hardwareMap.servo.get("ws");
+        //eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
+        //eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
+        //color_left = hardwareMap.colorSensor.get("cl");
         waitForStart();
         while (opModeIsActive()) {
 
@@ -140,28 +138,14 @@ public class DriveAutoBeacon extends LinearOpMode {
             else if (!autoOn && gamepad1.b) {
                 fly.setPower(0);
             }
-
+            /*
             if(!autoOn && gamepad1.right_bumper) {
                 pressBeaconSided("right");
             }
             else if(!autoOn && gamepad1.left_bumper) {
                 pressBeaconSided("left");
-            }
+            }*/
         }
-        stopDrive();
-        l.close();
-        r.close();
-        lb.close();
-        rb.close();
-        fly.close();
-        button_left.close();
-        button_right.close();
-        wall_servo.close();
-        touch.close();
-        eodsFore.close();
-        eodsBack.close();
-        color_left.close();
-        lift.close();
     }
     public void drive(double power) {
         l.setPower(power);
@@ -190,7 +174,7 @@ public class DriveAutoBeacon extends LinearOpMode {
             this.sleep(1);
         }
     }
-
+    /*
     public boolean pressBeaconSided(String side) throws InterruptedException{
         //Sets Initial Servo Positions
         autoOn = true;
@@ -275,4 +259,5 @@ public class DriveAutoBeacon extends LinearOpMode {
             this.sleep(1);
         }
     }
+    */
 }
