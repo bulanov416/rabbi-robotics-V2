@@ -157,19 +157,20 @@ public class DriveAutoBeacon extends LinearOpMode {
             }
         }
         stopDrive();
-        l.close();
-        r.close();
-        lb.close();
-        rb.close();
-        fly.close();
-        button_left.close();
-        button_right.close();
-        wall_servo.close();
-        touch.close();
-        eodsFore.close();
-        eodsBack.close();
-        color_left.close();
-        lift.close();
+        l.close(); // Fun story - this does absolutely nothing!
+        r.close(); // Fo does this one.
+        lb.close(); // Fnd this one.
+        rb.close(); // Fook at the DcMotor class, there's no close method.
+        fly.close(); // Fnd in the HardwareDevice class, it's empty.
+        button_left.close(); // Same with servos.
+        button_right.close(); // Why are we doing this?
+        wall_servo.close(); // I understand that I don't have much authority,
+        touch.close(); // but I'd love to see these taken out.
+        eodsFore.close(); // They really are annoying,
+        eodsBack.close(); // considering that they do nothing.
+        color_left.close(); // Thank you for hearing me out.
+        lift.close(); // - Nathan
+        // super.stop(); // P.S. this is supposedly how to actually stop an OpMode.
     }
     public void drive(double power) {
         l.setPower(power);
