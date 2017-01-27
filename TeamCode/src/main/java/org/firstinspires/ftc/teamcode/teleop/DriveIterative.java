@@ -112,8 +112,8 @@ public class DriveIterative extends OpMode {
             fly.setPower(0); // Emergency stop the flywheel
         }
         else if (!autoOn && gamepad1.left_trigger > 0) {
-            fly.setPower(gamepad1.left_trigger);
-        }
+            fly.setPower(Range.clip(gamepad1.left_trigger*2, 0, 0.5)); /// change the last number to increase max power
+        } else {fly.setPower(0);}
     }
 
     @Override
