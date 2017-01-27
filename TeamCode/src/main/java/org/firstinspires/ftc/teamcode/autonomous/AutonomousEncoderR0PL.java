@@ -65,7 +65,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
             this.pressBeacon();
             if (!opModeIsActive()) break;
             //Particle Shooting
-            fly.setPower(0.6);
+            fly.setPower(-0.95);
             driveEncoder(-0.3, -50);
             fly_servo.setPosition(0.9);
             driveEncoder(0.3, 50);
@@ -239,7 +239,7 @@ public class AutonomousEncoderR0PL extends LinearOpMode {
         if (!opModeIsActive()) return;
         //Deploys pusher servos
         if (colorFirstSide) { button_right.setPosition(0.95);
-        } else { button_left.setPosition(0.05); }
+        } else { button_left.setPosition(0.01); }
         //Waits for servos to move
         sleepOpMode(350);
         if (!opModeIsActive()) return;

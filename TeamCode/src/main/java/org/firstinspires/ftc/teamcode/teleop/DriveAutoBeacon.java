@@ -31,6 +31,7 @@ public class DriveAutoBeacon extends LinearOpMode {
     Servo button_left;
     Servo button_right;
     Servo wall_servo;
+    Servo fly_servo;
     TouchSensor touch;
     boolean autoOn = false;
     double powerScale = 1;
@@ -91,6 +92,7 @@ public class DriveAutoBeacon extends LinearOpMode {
         lb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
+        fly_servo = hardwareMap.servo.get("sf");
 
         waitForStart();
         while (opModeIsActive()) {
@@ -108,43 +110,49 @@ public class DriveAutoBeacon extends LinearOpMode {
                 rb.setPower(l_right_drive_power);
                 lb.setPower(l_left_drive_power);
             }
-
-            if (!autoOn && gamepad1.dpad_up) {
-                lift.setPower(1);
-            }
-            if (!autoOn && gamepad1.dpad_down) {
-                lift.setPower(-1);
-            }
             if (!autoOn && gamepad1.y) {
                 lift.setPower(0);
             }
+            else if (!autoOn && gamepad1.dpad_up) {
+                lift.setPower(1);
+            }
+            else if (!autoOn && gamepad1.dpad_down) {
+                lift.setPower(-1);
+            }
             if (!autoOn && gamepad1.left_bumper) {
-                button_left.setPosition(0.05);
+                button_left.setPosition(0.01);
             }
             if (!autoOn && gamepad1.right_bumper) {
                 button_right.setPosition(0.95 );
             }
             if (!autoOn && gamepad1.x) {
-                button_left.setPosition(0.9);
+                button_left.setPosition(0.87);
                 button_right.setPosition(0.1);
             }
             if (!autoOn && gamepad1.left_stick_button) {
-                powerScale = 0.5d;
+                powerScale = 0.20d;
             }
             else if (!autoOn && gamepad1.right_stick_button) {
                 powerScale = 1.0d;
             }
             if (!autoOn && gamepad1.a) {
-                fly.setPower(0.5);
+                fly.setPower(-0.95);
             }
             else if (!autoOn && gamepad1.b) {
                 fly.setPower(0);
             }
 
-            if(!autoOn && gamepad1.right_bumper) {
+            if(!autoOn && gamepad1.dpad_left) {
+                fly_servo.setPosition(0.05);
+            }
+            else if (!autoOn && gamepad1.dpad_right) {
+                fly_servo.setPosition(0.95);
+            }
+
+            if(!autoOn && gamepad1.right_trigger >= 0.5) {
                 pressBeaconSided("right");
             }
-            else if(!autoOn && gamepad1.left_bumper) {
+            else if(!autoOn && gamepad1.left_trigger >= 0.5) {
                 pressBeaconSided("left");
             }
         }
@@ -237,7 +245,7 @@ public class DriveAutoBeacon extends LinearOpMode {
         if (!continuePressSided(side)) return returnBeaconPress();
         //Deploys pusher servos
         if (colorLeftSide) { button_right.setPosition(0.95);
-        } else { button_left.setPosition(0.05); }
+        } else { button_left.setPosition(0.01); }
         //Waits for servos to move
         sleepOpModeSided(350, side);
         stopDrive();

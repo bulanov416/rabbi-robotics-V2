@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -18,6 +19,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name = "DriveFly")
+@Disabled
 public class DriveFly extends LinearOpMode {
     DcMotor l;
     DcMotor r;
