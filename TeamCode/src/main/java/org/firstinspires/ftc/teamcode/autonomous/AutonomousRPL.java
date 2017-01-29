@@ -56,8 +56,8 @@ public class AutonomousRPL extends LinearOpMode {
         while (opModeIsActive()) {
             //Sets Initial Servo Positions
             wall_servo.setPosition(0.39);
-            button_right.setPosition(0.1);
-            button_left.setPosition(0.9);
+            button_left.setPosition(0.70);
+            button_right.setPosition(0.80 );
             color_left.enableLed(false);
             color_down.enableLed(true);
             fly_servo.setPosition(0.1);
@@ -238,7 +238,7 @@ public class AutonomousRPL extends LinearOpMode {
         wall_servo.setPosition(0.1);
         if (!opModeIsActive()) return;
         //Deploys pusher servos
-        if (colorFirstSide) { button_right.setPosition(0.95);
+        if (colorFirstSide) { button_right.setPosition(0.15);
         } else { button_left.setPosition(0.01); }
         //Waits for servos to move
         sleepOpMode(350);

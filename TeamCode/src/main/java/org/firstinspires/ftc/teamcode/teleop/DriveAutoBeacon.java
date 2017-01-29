@@ -123,11 +123,11 @@ public class DriveAutoBeacon extends LinearOpMode {
                 button_left.setPosition(0.01);
             }
             if (!autoOn && gamepad1.right_bumper) {
-                button_right.setPosition(0.95 );
+                button_right.setPosition(0.15);
             }
             if (!autoOn && gamepad1.x) {
-                button_left.setPosition(0.87);
-                button_right.setPosition(0.1);
+                button_left.setPosition(0.70);
+                button_right.setPosition(0.80 );
             }
             if (!autoOn && gamepad1.left_stick_button) {
                 powerScale = 0.20d;
@@ -204,8 +204,8 @@ public class DriveAutoBeacon extends LinearOpMode {
         //Sets Initial Servo Positions
         autoOn = true;
         wall_servo.setPosition(0.39);
-        button_right.setPosition(0.1);
-        button_left.setPosition(0.9);
+        button_left.setPosition(0.70);
+        button_right.setPosition(0.80 );
         color_left.enableLed(false);
         lb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -245,7 +245,7 @@ public class DriveAutoBeacon extends LinearOpMode {
         wall_servo.setPosition(0.1);
         if (!continuePressSided(side)) return returnBeaconPress();
         //Deploys pusher servos
-        if (colorLeftSide) { button_right.setPosition(0.95);
+        if (colorLeftSide) { button_right.setPosition(0.15);
         } else { button_left.setPosition(0.01); }
         //Waits for servos to move
         sleepOpModeSided(350, side);
@@ -263,8 +263,8 @@ public class DriveAutoBeacon extends LinearOpMode {
         if (!continuePressSided(side)) return returnBeaconPress();
         //Sets Servos
         wall_servo.setPosition(0.37);
-        button_right.setPosition(0.1);
-        button_left.setPosition(0.9);
+        button_left.setPosition(0.70);
+        button_right.setPosition(0.80 );
         sleepOpModeSided(350, side);
         return returnBeaconPress();
     }

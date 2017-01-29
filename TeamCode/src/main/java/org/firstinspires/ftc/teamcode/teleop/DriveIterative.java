@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.*;
@@ -13,7 +14,7 @@ import com.qualcomm.robotcore.util.Range;
  * run in a certain order.
  */
 @TeleOp(name = "Drive Iterative")
-// @Disabled
+@Disabled
 public class DriveIterative extends OpMode {
 
     DcMotor l;
