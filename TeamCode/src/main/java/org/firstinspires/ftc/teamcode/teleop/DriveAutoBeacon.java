@@ -88,8 +88,8 @@ public class DriveAutoBeacon extends LinearOpMode {
         eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
         color_left = hardwareMap.colorSensor.get("cl");
-        l.setDirection(DcMotor.Direction.REVERSE);
-        lb.setDirection(DcMotor.Direction.REVERSE);
+        r.setDirection(DcMotor.Direction.REVERSE);
+        rb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
         fly_servo = hardwareMap.servo.get("sf");
@@ -99,11 +99,11 @@ public class DriveAutoBeacon extends LinearOpMode {
 
             float l_gp1_left_stick_y = gamepad1.left_stick_y;
             float l_left_drive_power
-                    = (float) scale_motor_power(l_gp1_left_stick_y);
+                    = (float) -scale_motor_power(l_gp1_left_stick_y);
 
             float l_gp1_right_stick_y = gamepad1.right_stick_y;
             float l_right_drive_power
-                    = (float) scale_motor_power(l_gp1_right_stick_y);
+                    = (float) -scale_motor_power(l_gp1_right_stick_y);
             if(!autoOn) {
                 r.setPower(l_right_drive_power);
                 l.setPower(l_left_drive_power);

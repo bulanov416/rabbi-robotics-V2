@@ -47,15 +47,15 @@ public class AutonomousRPL extends LinearOpMode {
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
         color_left = hardwareMap.colorSensor.get("cl");
         color_down = hardwareMap.colorSensor.get("cd");
-        l.setDirection(DcMotor.Direction.REVERSE);
-        lb.setDirection(DcMotor.Direction.REVERSE);
+        r.setDirection(DcMotor.Direction.REVERSE);
+        rb.setDirection(DcMotor.Direction.REVERSE);
         touch = hardwareMap.touchSensor.get("t");
         wall_servo = hardwareMap.servo.get("ws");
         fly_servo = hardwareMap.servo.get("sf");
         waitForStart();
         while (opModeIsActive()) {
             //Sets Initial Servo Positions
-            wall_servo.setPosition(0.39);
+            wall_servo.setPosition(0.31);
             button_left.setPosition(0.70);
             button_right.setPosition(0.80 );
             color_left.enableLed(false);
@@ -64,6 +64,7 @@ public class AutonomousRPL extends LinearOpMode {
             //Press First Beacon
             this.pressBeacon();
             if (!opModeIsActive()) break;
+            /**
             //Particle Shooting
             fly.setPower(-0.95);
             driveEncoder(-0.3, -50);
@@ -95,6 +96,7 @@ public class AutonomousRPL extends LinearOpMode {
             }
             driveEncoder(0.3, 8);
             * */
+             break;
         }
         stopDrive();
         l.close();
@@ -124,10 +126,6 @@ public class AutonomousRPL extends LinearOpMode {
     }
 
     public void setMotorModes(DcMotor.RunMode runMode) {
-        lb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        rb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        r.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        l.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         lb.setMode(runMode);
         rb.setMode(runMode);
         r.setMode(runMode);
@@ -135,6 +133,10 @@ public class AutonomousRPL extends LinearOpMode {
     }
 //CM forward, power forwards
     public void driveEncoder(double power, double cm) throws InterruptedException{
+        lb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        r.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        l.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMotorModes(DcMotor.RunMode.RUN_USING_ENCODER);
         l.setPower(power);
         r.setPower(power);
@@ -152,6 +154,10 @@ public class AutonomousRPL extends LinearOpMode {
     }
 //Degrees clockwise, power absolute value
     public void turnEncoder(double power, double degrees) throws InterruptedException{
+        lb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        r.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        l.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMotorModes(DcMotor.RunMode.RUN_USING_ENCODER);
         int ticks = (int) (116 *  1120 * degrees / (pi * wheelDiameter * 360));
         if (degrees > 0) {
@@ -205,41 +211,61 @@ public class AutonomousRPL extends LinearOpMode {
 
     public void pressBeacon() throws InterruptedException{
         //Sets Initial Servo Positions
-        wall_servo.setPosition(0.39);
-        button_right.setPosition(0.1);
-        button_left.setPosition(0.9);
+        wall_servo.setPosition(0.31);
+        button_left.setPosition(0.70);
+        button_right.setPosition(0.80);
         color_left.enableLed(false);
         setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
-        while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) { drive(0.2); }
+        while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) { drive(0.2); }
         if (!opModeIsActive()) return;
-        while(eodsBack.getLightDetected() < 0.03 && opModeIsActive()) { drive(0.12); }
-        if (!opModeIsActive()) return;
-        while(eodsBack.getLightDetected() > 0.03 && opModeIsActive()) { drive(0.12); }
+        while(eodsBack.getLightDetected() < 0.2 && opModeIsActive()) { drive(0.2); }
         stopDrive();
-        while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) {
-            this.setLeftPower(-0.15);
-            this.setRightPower(0.15);
+        sleepOpMode(250);
+        if (!opModeIsActive()) return;
+        while(eodsBack.getLightDetected() > 0.2 && opModeIsActive()) { drive(0.17); }
+        stopDrive();
+        sleepOpMode(250);
+        if (!opModeIsActive()) return;
+        while(eodsBack.getLightDetected() < 0.2 && opModeIsActive()) { drive(-0.17); }
+        stopDrive();
+        sleepOpMode(250);
+        if (!opModeIsActive()) return;
+        while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
+            this.setLeftPower(-0.25);
+            this.setRightPower(0.25);
         }
+        stopDrive();
+        sleepOpMode(250);
+        if (!opModeIsActive()) return;
+        while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
+            this.setLeftPower(0.19);
+            this.setRightPower(-0.19);
+        }
+        stopDrive();
+        sleepOpMode(250);
         if (!opModeIsActive()) return;
         stopDrive();
+
         //Move to wall
         while (!touch.isPressed() && opModeIsActive()) { drive(0.2); }
         stopDrive();
         if (!opModeIsActive()) return;
         //Gets First's Beacon color, true if red, false if blue
         boolean colorFirstSide = color_left.red() > color_left.blue();
+         sleepOpMode(50);
         //Drives back from Beacon
         drive(-0.12);
         sleepOpMode(600);
         if (!opModeIsActive()) return;
         stopDrive();
         //Retracts button
-        wall_servo.setPosition(0.1);
+        wall_servo.setPosition(0.9);
         if (!opModeIsActive()) return;
         //Deploys pusher servos
-        if (colorFirstSide) { button_right.setPosition(0.15);
-        } else { button_left.setPosition(0.01); }
+        telemetry.addLine("Left Side is: " + (colorFirstSide ? "red" : "blue"));
+        if (colorFirstSide) { button_left.setPosition(0.01);
+        } else { button_right.setPosition(0.15); }
         //Waits for servos to move
         sleepOpMode(350);
         if (!opModeIsActive()) return;
@@ -255,10 +281,8 @@ public class AutonomousRPL extends LinearOpMode {
         stopDrive();
         if (!opModeIsActive()) return;
         //Sets Servos
-        wall_servo.setPosition(0.37);
-        button_right.setPosition(0.1);
-        button_left.setPosition(0.9);
-        sleepOpMode(350);
+        button_left.setPosition(0.70);
+        button_right.setPosition(0.80 );
     }
 }
 
