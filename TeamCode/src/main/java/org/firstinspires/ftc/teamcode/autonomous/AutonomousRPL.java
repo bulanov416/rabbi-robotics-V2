@@ -232,15 +232,28 @@ public class AutonomousRPL extends LinearOpMode {
         sleepOpMode(250);
         if (!opModeIsActive()) return;
         while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
-            this.setLeftPower(-0.25);
-            this.setRightPower(0.25);
+            this.setLeftPower(-0.20);
+            this.setRightPower(0.20);
         }
         stopDrive();
         sleepOpMode(250);
         if (!opModeIsActive()) return;
-        while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
-            this.setLeftPower(0.19);
-            this.setRightPower(-0.19);
+        if (eodsFore.getLightDetected() < 0.2) {
+            while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
+                this.setLeftPower(0.19);
+                this.setRightPower(-0.19);
+            }
+            sleepOpMode(8);
+            while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
+                this.setLeftPower(0.19);
+                this.setRightPower(-0.19);
+            }
+        }
+        else {
+            while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
+                this.setLeftPower(0.19);
+                this.setRightPower(-0.19);
+            }
         }
         stopDrive();
         sleepOpMode(250);
