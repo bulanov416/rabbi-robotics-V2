@@ -127,7 +127,7 @@ public class DriveAutoBeacon extends LinearOpMode {
             }
             if (!autoOn && gamepad1.x) {
                 button_left.setPosition(0.70);
-                button_right.setPosition(0.80 );
+                button_right.setPosition(0.68);
             }
             if (!autoOn && gamepad1.left_stick_button) {
                 powerScale = 0.20d;

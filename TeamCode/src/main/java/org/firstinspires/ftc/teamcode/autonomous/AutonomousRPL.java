@@ -60,9 +60,15 @@ public class AutonomousRPL extends LinearOpMode {
             button_right.setPosition(0.80 );
             color_left.enableLed(false);
             color_down.enableLed(true);
+
             fly_servo.setPosition(0.1);
             //Press First Beacon
-            this.pressBeacon();
+            this.pressBeacon();/**
+            while (opModeIsActive()) {
+                telemetry.addLine("Red: " + color_left.red() + "\nBlue: " + color_left.blue());
+                telemetry.update();
+                sleepOpMode(500);
+            }**/
             if (!opModeIsActive()) break;
             /**
             //Particle Shooting
@@ -213,7 +219,7 @@ public class AutonomousRPL extends LinearOpMode {
         //Sets Initial Servo Positions
         wall_servo.setPosition(0.31);
         button_left.setPosition(0.70);
-        button_right.setPosition(0.80);
+        button_right.setPosition(0.68);
         color_left.enableLed(false);
         setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
@@ -232,27 +238,37 @@ public class AutonomousRPL extends LinearOpMode {
         sleepOpMode(250);
         if (!opModeIsActive()) return;
         while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
-            this.setLeftPower(-0.20);
-            this.setRightPower(0.20);
+            this.setLeftPower(-0.32);
+            this.setRightPower(0.32);
         }
         stopDrive();
         sleepOpMode(250);
         if (!opModeIsActive()) return;
         if (eodsFore.getLightDetected() < 0.2) {
             while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
-                this.setLeftPower(0.19);
-                this.setRightPower(-0.19);
+                this.setLeftPower(0.2);
+                this.setRightPower(-0.2);
             }
-            sleepOpMode(8);
+            sleepOpMode(50);
             while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
-                this.setLeftPower(0.19);
-                this.setRightPower(-0.19);
+                this.setLeftPower(0.2);
+                this.setRightPower(-0.2);
+            }
+            sleepOpMode(50);
+            while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
+                this.setLeftPower(-0.2);
+                this.setRightPower(0.2);
             }
         }
         else {
             while (eodsFore.getLightDetected() > 0.2 && opModeIsActive()) {
-                this.setLeftPower(0.19);
-                this.setRightPower(-0.19);
+                this.setLeftPower(0.2);
+                this.setRightPower(-0.2);
+            }
+            sleepOpMode(50);
+            while (eodsFore.getLightDetected() < 0.2 && opModeIsActive()) {
+                this.setLeftPower(-0.2);
+                this.setRightPower(0.2);
             }
         }
         stopDrive();
@@ -295,7 +311,7 @@ public class AutonomousRPL extends LinearOpMode {
         if (!opModeIsActive()) return;
         //Sets Servos
         button_left.setPosition(0.70);
-        button_right.setPosition(0.80 );
+        button_right.setPosition(0.68 );
     }
 }
 
