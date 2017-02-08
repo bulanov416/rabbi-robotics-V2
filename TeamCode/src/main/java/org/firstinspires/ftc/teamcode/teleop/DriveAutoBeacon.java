@@ -25,6 +25,8 @@ public class DriveAutoBeacon extends LinearOpMode {
     DcMotor rb;
     DcMotor lift;
     DcMotor fly;
+    DcMotor loader;
+    DcMotor intake;
     OpticalDistanceSensor eodsBack;
     OpticalDistanceSensor eodsFore;
     ColorSensor color_left;
@@ -82,6 +84,8 @@ public class DriveAutoBeacon extends LinearOpMode {
         lb = hardwareMap.dcMotor.get("lb");
         lift = hardwareMap.dcMotor.get("lift");
         fly = hardwareMap.dcMotor.get("fly");
+        intake = hardwareMap.dcMotor.get("in");
+        loader = hardwareMap.dcMotor.get("load");
 
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
@@ -127,7 +131,7 @@ public class DriveAutoBeacon extends LinearOpMode {
             }
             if (!autoOn && gamepad1.x) {
                 button_left.setPosition(0.70);
-                button_right.setPosition(0.68);
+                button_right.setPosition(0.92);
             }
             if (!autoOn && gamepad1.left_stick_button) {
                 powerScale = 0.20d;
@@ -155,6 +159,19 @@ public class DriveAutoBeacon extends LinearOpMode {
             else if(!autoOn && gamepad1.left_trigger >= 0.5) {
                 pressBeaconSided("left");
             }
+
+            if(!autoOn && gamepad2.a) {
+                turnLoader(0.6f, 2.5);
+            }
+            else if (!autoOn && gamepad2.b) {
+                turnLoader(0.6f, -2.5);
+            }
+            if (!autoOn && gamepad2.x) {
+                intake.setPower(0.5);
+            }
+            else if (!autoOn && gamepad2.y) {
+                intake.setPower(0);
+            }
         }
         stopDrive();
         l.close();
@@ -162,9 +179,12 @@ public class DriveAutoBeacon extends LinearOpMode {
         lb.close();
         rb.close();
         fly.close();
+        intake.close();
+        loader.close();
         button_left.close();
         button_right.close();
         wall_servo.close();
+        fly_servo.close();
         touch.close();
         eodsFore.close();
         eodsBack.close();
@@ -198,6 +218,20 @@ public class DriveAutoBeacon extends LinearOpMode {
         while (opModeIsActive() && System.currentTimeMillis() < time + millTime) {
             this.sleep(1);
         }
+    }
+
+    public void setMotorModes(DcMotor.RunMode runMode) {
+        lb.setMode(runMode);
+        rb.setMode(runMode);
+        r.setMode(runMode);
+        l.setMode(runMode);
+    }
+
+    public void turnLoader(float power, double rotations) {
+        loader.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        loader.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        loader.setPower(power);
+        loader.setTargetPosition((int) ((rotations*1440)+loader.getCurrentPosition()));
     }
 
     public boolean pressBeaconSided(String side) throws InterruptedException{
