@@ -152,19 +152,19 @@ public class DriveAutoBeacon extends LinearOpMode {
             else if (!autoOn && gamepad1.dpad_right) {
                 fly_servo.setPosition(0.95);
             }
-
+            /*
             if(!autoOn && gamepad1.right_trigger >= 0.5) {
                 pressBeaconSided("right");
             }
             else if(!autoOn && gamepad1.left_trigger >= 0.5) {
                 pressBeaconSided("left");
-            }
+            }*/
 
             if(!autoOn && gamepad2.a) {
                 turnLoader(0.6f, 2.5);
             }
             else if (!autoOn && gamepad2.b) {
-                turnLoader(0.6f, -2.5);
+                turnLoader(-0.6f, -2.5);
             }
             if (!autoOn && gamepad2.x) {
                 intake.setPower(0.5);
