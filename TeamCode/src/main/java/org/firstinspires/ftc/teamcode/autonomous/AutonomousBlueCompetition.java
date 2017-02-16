@@ -36,7 +36,7 @@ public class AutonomousBlueCompetition extends LinearOpMode {
         lb = hardwareMap.dcMotor.get("lb");
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        eods = hardwareMap.opticalDistanceSensor.get("eods");
+        eods = hardwareMap.opticalDistanceSensor.get("eodsFore");
         color_right = hardwareMap.colorSensor.get("cr");
         r.setDirection(DcMotor.Direction.REVERSE);
         rb.setDirection(DcMotor.Direction.REVERSE);
@@ -108,7 +108,7 @@ public class AutonomousBlueCompetition extends LinearOpMode {
             sleepOpMode(550);
             //Turns and moves forward until crosses right edge of Line
             /*
-            while (eods.getLightDetected() > 0.03 && opModeIsActive()) {
+            while (eodsFore.getLightDetected() > 0.03 && opModeIsActive()) {
                 setLeftPower(0.12);
             }
             */
@@ -199,13 +199,13 @@ public class AutonomousBlueCompetition extends LinearOpMode {
             sleepOpMode(550);
             //Final adjustments, depending on position relative to line
             /*
-            if (eods.getLightDetected() > 0.03) {
-                while (eods.getLightDetected() > 0.03 && opModeIsActive()) {
+            if (eodsFore.getLightDetected() > 0.03) {
+                while (eodsFore.getLightDetected() > 0.03 && opModeIsActive()) {
                     setRightPower(0.17);
                 }
             }
             else {
-                while (eods.getLightDetected() < 0.03 && opModeIsActive()) {
+                while (eodsFore.getLightDetected() < 0.03 && opModeIsActive()) {
                     setLeftPower(0.17);
                 }
             }
