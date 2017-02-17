@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -12,6 +13,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Created by alexbulanov on 12/19/16.
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "RPL")
+    @Disabled
 public class AutonomousRPL extends LinearOpMode {
 
     DcMotor l;
@@ -44,10 +46,7 @@ public class AutonomousRPL extends LinearOpMode {
 
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
-        eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
-        eodsBack.enableLed(true);
-        eodsFore.enableLed(true);
+
         color_left = hardwareMap.colorSensor.get("cl");
         r.setDirection(DcMotor.Direction.REVERSE);
         rb.setDirection(DcMotor.Direction.REVERSE);
@@ -223,13 +222,6 @@ public class AutonomousRPL extends LinearOpMode {
         while (opModeIsActive() && System.currentTimeMillis() < time + millTime) {
             this.sleep(1);
         }
-    }
-
-    public void turnLoader(float power, double rotations) {
-        loader.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        loader.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        loader.setPower(power);
-        loader.setTargetPosition((int) ((rotations*1440)+loader.getCurrentPosition()));
     }
 
     public void pressBeacon() throws InterruptedException{
