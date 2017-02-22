@@ -31,6 +31,12 @@ public class AutonomousRPLWiggle extends LinearOpMode {
     final float WHEEL_DIAMETER = 10f;
     final float PI = 3.1415f;
     final float THRESHOLD = 0.13f;
+    final float LEFT_RETRACTED = 0.90f;
+    final float LEFT_DEPLOYED = 0.01f;
+    final float RIGHT_RETRACTED = 0.92f;
+    final float RIGHT_DEPLOYED = 0.15f;
+    final float WS_RETRACTED = 0.0f;
+    final float WS_DEPLOYED = 0.98f;
 
 
     @Override
@@ -46,9 +52,9 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
         wall_servo = hardwareMap.servo.get("ws");
-        wall_servo.setPosition(0.31);
-        button_left.setPosition(0.70);
-        button_right.setPosition(0.92);
+        wall_servo.setPosition(WS_DEPLOYED);
+        button_left.setPosition(LEFT_RETRACTED);
+        button_right.setPosition(RIGHT_RETRACTED);
         //Sensors
         eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
         eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
@@ -196,9 +202,9 @@ public class AutonomousRPLWiggle extends LinearOpMode {
 
     public void pressBeacon() throws InterruptedException{
         //Sets Initial Servo Positions
-        wall_servo.setPosition(0.31);
-        button_left.setPosition(0.70);
-        button_right.setPosition(0.92);
+        wall_servo.setPosition(WS_DEPLOYED);
+        button_left.setPosition(LEFT_RETRACTED);
+        button_right.setPosition(RIGHT_RETRACTED);
         color_left.enableLed(false);
         setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
@@ -238,11 +244,11 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         if (!opModeIsActive()) return;
         stopDrive();
         //Retracts button
-        wall_servo.setPosition(0.9);
+        wall_servo.setPosition(WS_RETRACTED);
         if (!opModeIsActive()) return;
         //Deploys pusher servos
-        if (colorFirstSide) { button_left.setPosition(0.01);
-        } else { button_right.setPosition(0.15); }
+        if (colorFirstSide) { button_left.setPosition(LEFT_DEPLOYED);
+        } else { button_right.setPosition(RIGHT_DEPLOYED); }
         //Final Correction
         if(!colorFirstSide) {
             this.setLeftPower(-0.2);
@@ -256,8 +262,8 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         drive(0.13);
         sleepOpMode(900);
         //Retracts Servos
-        button_left.setPosition(0.70);
-        button_right.setPosition(0.92);
+        button_left.setPosition(LEFT_RETRACTED);
+        button_right.setPosition(RIGHT_RETRACTED);
         stopDrive();
         return;
     }

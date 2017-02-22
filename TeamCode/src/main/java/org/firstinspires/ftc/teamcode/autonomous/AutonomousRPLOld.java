@@ -14,7 +14,8 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "RPL")
     @Disabled
-public class AutonomousRPL extends LinearOpMode {
+    @Deprecated
+public class AutonomousRPLOld extends LinearOpMode {
 
     DcMotor l;
     DcMotor r;
@@ -47,6 +48,11 @@ public class AutonomousRPL extends LinearOpMode {
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
 
+
+        eodsFore = hardwareMap.opticalDistanceSensor.get("eodsF");
+        eodsBack = hardwareMap.opticalDistanceSensor.get("eodsB");
+        eodsBack.enableLed(true);
+        eodsFore.enableLed(true);
         color_left = hardwareMap.colorSensor.get("cl");
         r.setDirection(DcMotor.Direction.REVERSE);
         rb.setDirection(DcMotor.Direction.REVERSE);

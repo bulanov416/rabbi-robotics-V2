@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  */
     @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Blue Auto Comp")
     @Disabled
+    @Deprecated
 public class AutonomousBlueCompetition extends LinearOpMode {
 
 
