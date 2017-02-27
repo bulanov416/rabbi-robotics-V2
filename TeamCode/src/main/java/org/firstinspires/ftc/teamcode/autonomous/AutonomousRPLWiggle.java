@@ -30,13 +30,13 @@ public class AutonomousRPLWiggle extends LinearOpMode {
     //Constants
     final float WHEEL_DIAMETER = 10f;
     final float PI = 3.1415f;
-    final float THRESHOLD = 0.13f;
+    final float THRESHOLD = 0.3f;
     final float LEFT_RETRACTED = 0.90f;
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WS_RETRACTED = 0.0f;
-    final float WS_DEPLOYED = 0.98f;
+    final float WS_RETRACTED = 0.7f;
+    final float WS_DEPLOYED = 0.2f;
 
 
     @Override
@@ -65,6 +65,13 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         waitForStart();
         while (opModeIsActive()) {
             //Press First Beacon
+            /**
+            while(opModeIsActive()) {
+                telemetry.addLine("Fore: " + eodsFore.getLightDetected() + "\nBack: " + eodsBack.getLightDetected());
+                telemetry.update();
+                sleepOpMode(5);
+            }**/
+
             pressBeacon();
             if (!opModeIsActive()) break;
             //Drive back to shoot
@@ -208,7 +215,7 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         color_left.enableLed(false);
         setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //Moves to Line from Start
-        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) drive(0.6);
+        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) drive(0.4);
         while (eodsBack.getLightDetected() < THRESHOLD && opModeIsActive()) drive(0.2);
         stopDrive();
         sleepOpMode(100);
