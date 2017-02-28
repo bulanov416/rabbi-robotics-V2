@@ -75,10 +75,8 @@ public class AutonomousRPLWiggle extends LinearOpMode {
                 telemetry.update();
                 sleepOpMode(5);
             }**/
-
             pressBeacon();
             if (!opModeIsActive()) break;
-
             //Drive back to shoot
             wall_servo.setPosition(WS_RETRACTED);
             fly.setPower(-0.95);
@@ -88,30 +86,46 @@ public class AutonomousRPLWiggle extends LinearOpMode {
             sleepOpMode(4000);
             fly.setPower(0);
             intake.setPower(0);
+            if (!opModeIsActive()) break;
             //Drive forwards
             drive(0.65);
             sleepOpMode(850);
             stopDrive();
-            //RIGHT TURN
+            if (!opModeIsActive()) break;
+            //RIGHT TURN, 90 DEGREES
             setLeftPower(0.5);
             setRightPower(-0.5);
             sleepOpMode(1500);
+            if (!opModeIsActive()) break;
             stopDrive();
             //SECOND BEACON
             drive(0.4);
             sleepOpMode(300);
             pressBeacon();
-            //LEFT TURN, 135 DEGREES
-            //DRIVE UNTIL CENTER VORTEX
-            /**
-            drive(0.5);
-            while (eodsFore.getLightDetected() < THRESHOLD) {
+            //DRIVE BACK FROM BEACON
+            drive(-0.6);
+            sleepOpMode(500);
+            stopDrive();
+             //LEFT TURN, 90 DEGREES
+             setLeftPower(-0.5);
+             setRightPower(0.5);
+             sleepOpMode(1500);
+            if (!opModeIsActive()) break;
+             stopDrive();
+            //DRIVE UNTIL CORNER VORTEX
+            while (eodsBack.getLightDetected() < 0.5 && opModeIsActive()) {
+                drive(0.8);
                 sleepOpMode(1);
             }
-            //DRIVE ONTO CENTER VORTEX
-            /**
-            drive(0.3);
-            sleepOpMode(350);**/
+            while(eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) {
+                drive(0.6);
+                sleepOpMode(1);
+            }
+            if (!opModeIsActive()) break;
+            //DRIVE ONTO CORNER VORTEX
+            drive(0.7);
+            sleepOpMode(700);
+            stopDrive();
             break;
         }
         //Closes hardware instances
@@ -148,7 +162,6 @@ public class AutonomousRPLWiggle extends LinearOpMode {
     }
     //CM forward, power forwards
     public void driveEncoder(double power, double cm) throws InterruptedException{
-        long startTime = System.currentTimeMillis();
         r.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         l.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMotorModes(DcMotor.RunMode.RUN_TO_POSITION);
@@ -161,9 +174,8 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         int ticks = (int) (cm * 1120 * 1.35/(PI * WHEEL_DIAMETER));
         l.setTargetPosition(ticks + l.getCurrentPosition());
         r.setTargetPosition(ticks + r.getCurrentPosition());
-        //lb.setTargetPosition(ticks + lb.getCurrentPosition());
-        //rb.setTargetPosition(ticks + rb.getCurrentPosition());
-        while ((l.isBusy() || r.isBusy()) && opModeIsActive()) {
+        long startTime = System.currentTimeMillis();
+        while ((l.isBusy() || r.isBusy()) && opModeIsActive() && System.currentTimeMillis() < (startTime + 3500)) {
             sleepOpMode(1);
         }
         setMotorModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -229,6 +241,11 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         }
     }
 
+    public void print(String input) {
+        telemetry.addLine(input);
+        telemetry.update();
+    }
+
     public void pressBeacon() throws InterruptedException{
         //Sets Initial Servo Positions
         wall_servo.setPosition(WS_DEPLOYED);
@@ -253,11 +270,12 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         stopDrive();
         sleepOpMode(100);
         if (!opModeIsActive()) return;
+        setLeftPower(-0.38);
+        setRightPower(0.38);
+        sleepOpMode(1600);
         //Turns left onto Line
-        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) {
-            setLeftPower(-0.38);
-            setRightPower(0.38);
-        }
+        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive())
+            sleepOpMode(1);
         if (!opModeIsActive()) return;
         stopDrive();
         //Wiggle Line-Follower
