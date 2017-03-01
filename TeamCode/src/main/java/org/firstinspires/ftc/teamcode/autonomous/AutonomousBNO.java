@@ -11,9 +11,9 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 /**
  * Created by alexbulanov on 12/19/16.
  */
-    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "RPL")
+    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "BNO")
 
-public class AutonomousRPLWiggle extends LinearOpMode {
+public class AutonomousBNO extends LinearOpMode {
 
 
     DcMotor l;
@@ -56,7 +56,7 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
         wall_servo = hardwareMap.servo.get("ws");
-        wall_servo.setPosition(WS_DEPLOYED);
+        wall_servo.setPosition(WS_RETRACTED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
         //Sensors
@@ -68,63 +68,24 @@ public class AutonomousRPLWiggle extends LinearOpMode {
         touch = hardwareMap.touchSensor.get("t");
         waitForStart();
         while (opModeIsActive()) {
-            //Press First Beacon
-            /**
-            while(opModeIsActive()) {
-                telemetry.addLine("Fore: " + eodsFore.getLightDetected() + "\nBack: " + eodsBack.getLightDetected());
-                telemetry.update();
-                sleepOpMode(5);
-            }**/
-            pressBeacon();
+            long startTime = System.currentTimeMillis();
+            driveEncoder(-0.8, -135);
+            stopDrive();
             if (!opModeIsActive()) break;
-            //Drive back to shoot
-            wall_servo.setPosition(WS_RETRACTED);
-            fly.setPower(-0.95);
-            driveEncoder(-0.8, -72);
-            //INSERT SHOOTING CODE
+            fly.setPower(-1);
+            sleepOpMode(1000);
             intake.setPower(-0.95);
             sleepOpMode(4000);
+            if (!opModeIsActive()) break;
             fly.setPower(0);
             intake.setPower(0);
-            if (!opModeIsActive()) break;
-            //Drive forwards
-            drive(0.65);
-            sleepOpMode(850);
             stopDrive();
-            if (!opModeIsActive()) break;
-            //RIGHT TURN, 90 DEGREES
-            setLeftPower(0.5);
-            setRightPower(-0.5);
-            sleepOpMode(1500);
-            if (!opModeIsActive()) break;
-            stopDrive();
-            //SECOND BEACON
-            drive(0.4);
-            sleepOpMode(300);
-            pressBeacon();
-            //DRIVE BACK FROM BEACON
-            drive(-0.6);
-            sleepOpMode(500);
-            stopDrive();
-             //LEFT TURN, 90 DEGREES
-             setLeftPower(-0.5);
-             setRightPower(0.5);
-             sleepOpMode(1500);
-            if (!opModeIsActive()) break;
-             stopDrive();
-            //DRIVE UNTIL CORNER VORTEX
-            while (eodsBack.getLightDetected() < 0.5 && opModeIsActive()) {
-                drive(0.8);
-                sleepOpMode(1);
-            }
-            while(eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) {
-                drive(0.6);
+            while (System.currentTimeMillis() < startTime + 20000 && opModeIsActive()) {
                 sleepOpMode(1);
             }
             if (!opModeIsActive()) break;
-            //DRIVE ONTO CORNER VORTEX
-            drive(0.7);
-            sleepOpMode(700);
+            drive(-1);
+            sleepOpMode(630);
             stopDrive();
             break;
         }

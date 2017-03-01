@@ -49,6 +49,13 @@ public class TeleOpMain extends LinearOpMode {
     long dLiftStart;
     double liftPower;
 
+    final float LEFT_RETRACTED = 0.90f;
+    final float LEFT_DEPLOYED = 0.01f;
+    final float RIGHT_RETRACTED = 0.92f;
+    final float RIGHT_DEPLOYED = 0.15f;
+    final float WS_RETRACTED = 0.7f;
+    final float WS_DEPLOYED = 0.31f;
+
     public TeleOpMain() {}
 
     double scale_motor_power(double p_power)  //Scales joystick value to output appropriate motor power
@@ -102,7 +109,7 @@ public class TeleOpMain extends LinearOpMode {
         fly_servo = hardwareMap.servo.get("sf");
         wall_servo = hardwareMap.servo.get("ws");
         tPStart = firingStart = rBStart = lBStart = uLiftStart = dLiftStart = System.currentTimeMillis();
-        wall_servo.setPosition(0.2);
+        wall_servo.setPosition(WS_RETRACTED);
         liftPower = 0;
         waitForStart();
         while (opModeIsActive()) {
@@ -114,14 +121,22 @@ public class TeleOpMain extends LinearOpMode {
             setLeftPower(-scale_motor_power(gamepad1.left_stick_y));
 
             //Hold-press for lift
-            if (gamepad1.dpad_up) lift.setPower(0.95);
-            else if(gamepad1.dpad_down) lift.setPower(-0.95);
+            if (gamepad1.dpad_up) {
+                lift.setPower(0.95);
+                button_left.setPosition(LEFT_RETRACTED);
+                button_right.setPosition(RIGHT_RETRACTED);
+            }
+            else if(gamepad1.dpad_down) {
+                lift.setPower(-0.95);
+                button_left.setPosition(LEFT_RETRACTED);
+                button_right.setPosition(RIGHT_RETRACTED);
+            }
             else lift.setPower(0);
 
             //Toggle press for left pusher
             if (gamepad1.left_bumper && !lBPressed) {
-                if (lBOut) button_left.setPosition(0.90);
-                else button_left.setPosition(0.01);
+                if (lBOut) button_left.setPosition(LEFT_DEPLOYED);
+                else button_left.setPosition(LEFT_RETRACTED);
                 lBOut = !lBOut;
                 lBStart = System.currentTimeMillis();
                 lBPressed = true;
@@ -129,8 +144,8 @@ public class TeleOpMain extends LinearOpMode {
 
             //Toggle press for right pusher
             if (gamepad1.right_bumper && !rBPressed) {
-                if (rBOut) button_right.setPosition(0.92);
-                else button_right.setPosition(0.15);
+                if (rBOut) button_right.setPosition(RIGHT_DEPLOYED);
+                else button_right.setPosition(RIGHT_RETRACTED);
                 rBOut = !rBOut;
                 rBStart = System.currentTimeMillis();
                 rBPressed = true;
@@ -145,15 +160,12 @@ public class TeleOpMain extends LinearOpMode {
 
             //Hold press for intake
             if(gamepad1.left_trigger > 0.5) intake.setPower(-0.95);
+            else if (gamepad1.b) intake.setPower(0.95);
             else intake.setPower(0);
 
             //Hold-Press for fly-wheel
-            if(gamepad1.right_trigger > 0.5) fly.setPower(-0.95);
+            if(gamepad1.right_trigger > 0.1) fly.setPower(-gamepad1.right_trigger);
             else fly.setPower(0);
-
-            //Experimental Controls for Wall Servo Debug
-            if(gamepad1.a) wall_servo.setPosition(0.8);
-            else if (gamepad1.b)  wall_servo.setPosition(0.2);
 
         }
         //Stops Robot
@@ -196,5 +208,10 @@ public class TeleOpMain extends LinearOpMode {
         lift.setPower(0);
         intake.setPower(0);
         fly.setPower(0);
+    }
+
+    public void print(String input) {
+        telemetry.addLine(input);
+        telemetry.update();
     }
 }
