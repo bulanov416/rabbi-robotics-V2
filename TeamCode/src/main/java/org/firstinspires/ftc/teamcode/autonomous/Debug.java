@@ -48,7 +48,7 @@ public class Debug extends LinearOpMode{
         //Servos
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        wall_servo = hardwareMap.servo.get("ws");
+        wall_servo = hardwareMap.servo.get("wsl");
         wall_servo.setPosition(WS_DEPLOYED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
@@ -58,12 +58,13 @@ public class Debug extends LinearOpMode{
         eodsBack.enableLed(true);
         eodsFore.enableLed(true);
         color_left = hardwareMap.colorSensor.get("cl");
-        touch = hardwareMap.touchSensor.get("t");
+        touch = hardwareMap.touchSensor.get("tr");
         waitForStart();
         while (opModeIsActive()) {
             //Press First Beacon
             while (opModeIsActive()) {
                 telemetry.addLine("Fore: " + eodsFore.getLightDetected() + "\nBack: " + eodsBack.getLightDetected());
+                telemetry.addLine("\nTouch Sensor: " + (touch.isPressed() ? "true" : "false"));
                 telemetry.update();
                 sleepOpMode(5);
             }

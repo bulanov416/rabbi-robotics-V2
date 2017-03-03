@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -18,6 +19,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name = "TeleDebug")
+@Disabled
 public class TeleDebug extends LinearOpMode {
 
     DcMotor l;
@@ -98,9 +100,7 @@ public class TeleDebug extends LinearOpMode {
         color_left = hardwareMap.colorSensor.get("cl");
         r.setDirection(DcMotor.Direction.REVERSE);
         rb.setDirection(DcMotor.Direction.REVERSE);
-        touch = hardwareMap.touchSensor.get("t");
-        fly_servo = hardwareMap.servo.get("sf");
-        wall_servo = hardwareMap.servo.get("ws");
+        wall_servo = hardwareMap.servo.get("wsl");
         tPStart = firingStart = rBStart = lBStart = uLiftStart = dLiftStart = System.currentTimeMillis();
         wall_servo.setPosition(0.2);
         liftPower = 0;
@@ -119,7 +119,7 @@ public class TeleDebug extends LinearOpMode {
             else lift.setPower(0);
              **/
             //Toggle press for left pusher
-            if (gamepad1.left_bumper && !lBPressed) {
+            if (gamepad1.dpad_up && !lBPressed) {
                 wall_servo.setPosition(wall_servo.getPosition()+0.05);
                 lBStart = System.currentTimeMillis();
                 lBPressed = true;
@@ -128,7 +128,7 @@ public class TeleDebug extends LinearOpMode {
             } else if(lBPressed && System.currentTimeMillis() - lBStart > 320) lBPressed = false;
 
             //Toggle press for right pusher
-            if (gamepad1.right_bumper && !rBPressed) {
+            if (gamepad1.dpad_down && !rBPressed) {
                 wall_servo.setPosition(wall_servo.getPosition()-0.05);
                 rBStart = System.currentTimeMillis();
                 rBPressed = true;

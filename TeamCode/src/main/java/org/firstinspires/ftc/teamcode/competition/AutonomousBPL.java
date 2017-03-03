@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.autonomous;
+package org.firstinspires.ftc.teamcode.competition;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 /**
  * Created by alexbulanov on 12/19/16.
  */
-    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "BPL")
+    @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Blue Beacon Push")
 
 public class AutonomousBPL extends LinearOpMode {
 
@@ -25,7 +25,8 @@ public class AutonomousBPL extends LinearOpMode {
     ColorSensor color_left;
     Servo button_left;
     Servo button_right;
-    Servo wall_servo;
+    Servo wall_servo_right;
+    Servo wall_servo_left;
     TouchSensor touch;
     DcMotor fly;
     DcMotor intake;
@@ -37,8 +38,11 @@ public class AutonomousBPL extends LinearOpMode {
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WS_RETRACTED = 0.7f;
-    final float WS_DEPLOYED = 0.31f;
+    final float WSR_RETRACTED = 0.15f;
+    final float WSR_DEPLOYED = 0.8f;
+    final float WSL_RETRACTED = 0.8f;
+    final float WSL_DEPLOYED = 0.28f;
+
 
 
     @Override
@@ -55,8 +59,10 @@ public class AutonomousBPL extends LinearOpMode {
         //Servos
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        wall_servo = hardwareMap.servo.get("ws");
-        wall_servo.setPosition(WS_DEPLOYED);
+        wall_servo_right = hardwareMap.servo.get("wsr");
+        wall_servo_right.setPosition(WSR_DEPLOYED);
+        wall_servo_left = hardwareMap.servo.get("wsl");
+        wall_servo_left.setPosition(WSL_RETRACTED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
         //Sensors
@@ -65,18 +71,24 @@ public class AutonomousBPL extends LinearOpMode {
         eodsBack.enableLed(true);
         eodsFore.enableLed(true);
         color_left = hardwareMap.colorSensor.get("cl");
-        touch = hardwareMap.touchSensor.get("t");
+        touch = hardwareMap.touchSensor.get("tr");
         waitForStart();
         while (opModeIsActive()) {
             //Press First Beacon
             drive(1);
-            sleepOpMode(750);
+            setLeftPower(0.8);
+            sleepOpMode(1000);
             pressBeacon();
             if (!opModeIsActive()) break;
             //Drive back to shoot
-            wall_servo.setPosition(WS_RETRACTED);
+            wall_servo_right.setPosition(WSR_RETRACTED);
             fly.setPower(-1);
-            driveEncoder(-0.8, -75);
+            driveEncoder(-0.8, -80);
+            drive(-1);
+            sleepOpMode(150);
+            drive(1);
+            sleepOpMode(160);
+            stopDrive();
             //CORRECTION
             setLeftPower(-0.9);
             setRightPower(0.9);
@@ -84,19 +96,25 @@ public class AutonomousBPL extends LinearOpMode {
             stopDrive();
             //SHOOTING
             intake.setPower(-0.95);
-            sleepOpMode(3800);
-            fly.setPower(0);
+            sleepOpMode(3600);
+            fly.setPower(-0.7);
             intake.setPower(0);
             if (!opModeIsActive()) break;
+            drive(-1);
+            sleepOpMode(240);
             //Drive forwards
             drive(0.8);
-            sleepOpMode(710);
+            sleepOpMode(1200);
+            fly.setPower(-0.4);
             stopDrive();
             if (!opModeIsActive()) break;
-            //RIGHT TURN, 90 DEGREES
-            setLeftPower(-0.5);
-            setRightPower(0.5);
-            sleepOpMode(1300);
+            //LEFT TURN, 90 DEGREES
+            setLeftPower(-1);
+            setRightPower(1);
+            sleepOpMode(600);
+            fly.setPower(-0.2);
+            sleepOpMode(400);
+            fly.setPower(0);
             if (!opModeIsActive()) break;
             stopDrive();
             //SECOND BEACON
@@ -107,10 +125,10 @@ public class AutonomousBPL extends LinearOpMode {
             drive(-1);
             sleepOpMode(600);
             stopDrive();
-             //LEFT TURN, 90 DEGREES
+             //RIGHT TURN, 90 DEGREES
              setLeftPower(1);
              setRightPower(-1);
-             sleepOpMode(700);
+             sleepOpMode(980);
             if (!opModeIsActive()) break;
              stopDrive();
             //DRIVE ONTO CORNER VORTEX
@@ -129,7 +147,8 @@ public class AutonomousBPL extends LinearOpMode {
         intake.close();
         button_left.close();
         button_right.close();
-        wall_servo.close();
+        wall_servo_right.close();
+        wall_servo_left.close();
         touch.close();
         eodsFore.close();
         eodsBack.close();
@@ -239,7 +258,7 @@ public class AutonomousBPL extends LinearOpMode {
 
     public void pressBeacon() throws InterruptedException{
         //Sets Initial Servo Positions
-        wall_servo.setPosition(WS_DEPLOYED);
+        wall_servo_right.setPosition(WSR_DEPLOYED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
         color_left.enableLed(false);
@@ -248,14 +267,15 @@ public class AutonomousBPL extends LinearOpMode {
         while (eodsBack.getLightDetected() < 0.5 && opModeIsActive()) {
             drive(0.37);
         }
-        sleepOpMode(125);
+        drive(-0.2);
+        sleepOpMode(80);
         stopDrive();
         sleepOpMode(100);
         if (!opModeIsActive()) return;
         setLeftPower(0.38);
         setRightPower(-0.38);
-        sleepOpMode(1600);
-        //Turns left onto Line
+        sleepOpMode(500);
+        //Turns right onto Line
         while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive())
             sleepOpMode(1);
         if (!opModeIsActive()) return;
@@ -263,12 +283,12 @@ public class AutonomousBPL extends LinearOpMode {
         //Wiggle Line-Follower
         while (!touch.isPressed()) {
             while (eodsFore.getLightDetected() < THRESHOLD && !touch.isPressed() && opModeIsActive()) {
-                setRightPower(0.41);
+                setRightPower(0.24);
             }
             if (!opModeIsActive()) return;
             stopDrive();
             while (eodsFore.getLightDetected() > THRESHOLD && !touch.isPressed() && opModeIsActive()) {
-                setLeftPower(0.41);
+                setLeftPower(0.24);
             }
             if (!opModeIsActive()) return;
             stopDrive();
@@ -278,30 +298,32 @@ public class AutonomousBPL extends LinearOpMode {
         sleepOpMode(50);
         //Gets First's Beacon color, true if red, false if blue
         boolean colorFirstSide = color_left.red() < color_left.blue();
+        if(!colorFirstSide) {
+            setLeftPower(-0.5);
+            sleepOpMode(500);
+        } else {
+            setRightPower(-0.5);
+            sleepOpMode(550);
+        }
+        stopDrive();
         //Drives back from Beacon
         drive(-0.12);
         sleepOpMode(500);
         if (!opModeIsActive()) return;
         stopDrive();
         //Retracts button
-        wall_servo.setPosition(WS_RETRACTED);
+        wall_servo_right.setPosition(WSR_RETRACTED);
         if (!opModeIsActive()) return;
         //Deploys pusher servos
         if (colorFirstSide) { button_left.setPosition(LEFT_DEPLOYED);
         } else { button_right.setPosition(RIGHT_DEPLOYED); }
-        //Final Correction
-        if(colorFirstSide) {
-            this.setLeftPower(0.2);
-            this.setRightPower(-0.2);
-        }
         //Waits for servos to move
-        sleepOpMode(240);
         stopDrive();
         sleepOpMode(400);
         if (!opModeIsActive()) return;
         stopDrive();
         //Drives forward and presses button
-        drive(0.17);
+        drive(0.31);
         sleepOpMode(1000);
         //Retracts Servos
         button_left.setPosition(LEFT_RETRACTED);

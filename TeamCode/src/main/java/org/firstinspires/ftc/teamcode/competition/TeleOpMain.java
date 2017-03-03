@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.teleop;
+package org.firstinspires.ftc.teamcode.competition;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -33,7 +33,8 @@ public class TeleOpMain extends LinearOpMode {
     Servo button_left;
     Servo button_right;
     Servo fly_servo;
-    Servo wall_servo;
+    Servo wall_servo_left;
+    Servo wall_servo_right;
     TouchSensor touch;
     double powerScale = 1;
     boolean togglePower = false;
@@ -53,8 +54,11 @@ public class TeleOpMain extends LinearOpMode {
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WS_RETRACTED = 0.7f;
-    final float WS_DEPLOYED = 0.31f;
+    final float WSR_RETRACTED = 0.15f;
+    final float WSR_DEPLOYED = 0.8f;
+    final float WSL_RETRACTED = 0.8f;
+    final float WSL_DEPLOYED = 0.28f;
+
 
     public TeleOpMain() {}
 
@@ -105,11 +109,11 @@ public class TeleOpMain extends LinearOpMode {
         color_left = hardwareMap.colorSensor.get("cl");
         r.setDirection(DcMotor.Direction.REVERSE);
         rb.setDirection(DcMotor.Direction.REVERSE);
-        touch = hardwareMap.touchSensor.get("t");
-        fly_servo = hardwareMap.servo.get("sf");
-        wall_servo = hardwareMap.servo.get("ws");
+        wall_servo_left = hardwareMap.servo.get("wsl");
+        wall_servo_left.setPosition(WSL_RETRACTED);
+        wall_servo_right = hardwareMap.servo.get("wsr");
+        wall_servo_right.setPosition(WSR_RETRACTED);
         tPStart = firingStart = rBStart = lBStart = uLiftStart = dLiftStart = System.currentTimeMillis();
-        wall_servo.setPosition(WS_RETRACTED);
         liftPower = 0;
         waitForStart();
         while (opModeIsActive()) {
@@ -164,8 +168,16 @@ public class TeleOpMain extends LinearOpMode {
             else intake.setPower(0);
 
             //Hold-Press for fly-wheel
-            if(gamepad1.right_trigger > 0.1) fly.setPower(-gamepad1.right_trigger);
-            else fly.setPower(0);
+            if(gamepad1.right_trigger > 0.6) {
+                fly.setPower(-gamepad1.right_trigger);
+                firingStart = System.currentTimeMillis();
+            }
+            else if (System.currentTimeMillis() < firingStart + 2000) {
+                fly.setPower((firingStart + 2000 - System.currentTimeMillis())/4000);
+            }
+            else {
+                fly.setPower(0);
+            }
 
         }
         //Stops Robot
