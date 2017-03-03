@@ -33,13 +33,13 @@ public class AutonomousBPL extends LinearOpMode {
     //Constants
     final float WHEEL_DIAMETER = 10f;
     final float PI = 3.1415f;
-    final float THRESHOLD = 0.2f;
+    final float THRESHOLD = 0.17f;
     final float LEFT_RETRACTED = 0.90f;
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WSR_RETRACTED = 0.15f;
-    final float WSR_DEPLOYED = 0.8f;
+    final float WSR_RETRACTED = 0.25f;
+    final float WSR_DEPLOYED = 0.83f;
     final float WSL_RETRACTED = 0.8f;
     final float WSL_DEPLOYED = 0.28f;
 
@@ -60,7 +60,7 @@ public class AutonomousBPL extends LinearOpMode {
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
         wall_servo_right = hardwareMap.servo.get("wsr");
-        wall_servo_right.setPosition(WSR_DEPLOYED);
+        wall_servo_right.setPosition(WSR_RETRACTED);
         wall_servo_left = hardwareMap.servo.get("wsl");
         wall_servo_left.setPosition(WSL_RETRACTED);
         button_left.setPosition(LEFT_RETRACTED);
@@ -71,6 +71,7 @@ public class AutonomousBPL extends LinearOpMode {
         eodsBack.enableLed(true);
         eodsFore.enableLed(true);
         color_left = hardwareMap.colorSensor.get("cl");
+        color_left.enableLed(false);
         touch = hardwareMap.touchSensor.get("tr");
         waitForStart();
         while (opModeIsActive()) {
@@ -84,16 +85,6 @@ public class AutonomousBPL extends LinearOpMode {
             wall_servo_right.setPosition(WSR_RETRACTED);
             fly.setPower(-1);
             driveEncoder(-0.8, -80);
-            drive(-1);
-            sleepOpMode(150);
-            drive(1);
-            sleepOpMode(160);
-            stopDrive();
-            //CORRECTION
-            setLeftPower(-0.9);
-            setRightPower(0.9);
-            sleepOpMode(100);
-            stopDrive();
             //SHOOTING
             intake.setPower(-0.95);
             sleepOpMode(3600);
@@ -104,7 +95,7 @@ public class AutonomousBPL extends LinearOpMode {
             sleepOpMode(240);
             //Drive forwards
             drive(0.8);
-            sleepOpMode(1200);
+            sleepOpMode(1320);
             fly.setPower(-0.4);
             stopDrive();
             if (!opModeIsActive()) break;
@@ -113,7 +104,7 @@ public class AutonomousBPL extends LinearOpMode {
             setRightPower(1);
             sleepOpMode(600);
             fly.setPower(-0.2);
-            sleepOpMode(400);
+            sleepOpMode(330);
             fly.setPower(0);
             if (!opModeIsActive()) break;
             stopDrive();
@@ -258,7 +249,7 @@ public class AutonomousBPL extends LinearOpMode {
 
     public void pressBeacon() throws InterruptedException{
         //Sets Initial Servo Positions
-        wall_servo_right.setPosition(WSR_DEPLOYED);
+        wall_servo_right.setPosition(WSR_RETRACTED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
         color_left.enableLed(false);
@@ -267,8 +258,11 @@ public class AutonomousBPL extends LinearOpMode {
         while (eodsBack.getLightDetected() < 0.5 && opModeIsActive()) {
             drive(0.37);
         }
-        drive(-0.2);
-        sleepOpMode(80);
+        stopDrive();
+        sleepOpMode(30);
+        while(eodsBack.getLightDetected() < 0.5 && opModeIsActive()) {
+            drive(-0.2);
+        }
         stopDrive();
         sleepOpMode(100);
         if (!opModeIsActive()) return;
@@ -276,39 +270,60 @@ public class AutonomousBPL extends LinearOpMode {
         setRightPower(-0.38);
         sleepOpMode(500);
         //Turns right onto Line
-        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive())
-            sleepOpMode(1);
+        while (eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) sleepOpMode(1);
+        sleepOpMode(5);
         if (!opModeIsActive()) return;
         stopDrive();
+        //Ensure on LEFT side of line
+        int counter = 0;
+        boolean passed = false;
+        while(counter < 500 && opModeIsActive()) {
+            if(eodsFore.getLightDetected() < THRESHOLD) {
+                passed = true;
+                break;
+            }
+            sleepOpMode(1);
+            counter++;
+        }
+        if (passed) {
+            sleepOpMode(100);
+            setLeftPower(-0.44);
+            while(eodsFore.getLightDetected() < THRESHOLD && opModeIsActive()) sleepOpMode(1);
+            sleepOpMode(5);
+            while(eodsFore.getLightDetected() > THRESHOLD && opModeIsActive()) sleepOpMode(1);
+        }
+        stopDrive();
+        sleepOpMode(150);
+        wall_servo_right.setPosition(WSR_DEPLOYED);
+        sleepOpMode(200);
         //Wiggle Line-Follower
         while (!touch.isPressed()) {
             while (eodsFore.getLightDetected() < THRESHOLD && !touch.isPressed() && opModeIsActive()) {
-                setRightPower(0.24);
+                setLeftPower(0.32);
             }
             if (!opModeIsActive()) return;
             stopDrive();
             while (eodsFore.getLightDetected() > THRESHOLD && !touch.isPressed() && opModeIsActive()) {
-                setLeftPower(0.24);
+                setRightPower(0.32);
             }
             if (!opModeIsActive()) return;
             stopDrive();
+            sleepOpMode(50);
         }
         stopDrive();
         if (!opModeIsActive()) return;
         sleepOpMode(50);
         //Gets First's Beacon color, true if red, false if blue
         boolean colorFirstSide = color_left.red() < color_left.blue();
-        if(!colorFirstSide) {
-            setLeftPower(-0.5);
-            sleepOpMode(500);
-        } else {
-            setRightPower(-0.5);
-            sleepOpMode(550);
+        stopDrive();
+        if(colorFirstSide) {
+            setRightPower(-0.4);
+            sleepOpMode(120);
         }
         stopDrive();
         //Drives back from Beacon
-        drive(-0.12);
-        sleepOpMode(500);
+        drive(-1);
+        sleepOpMode(120);
         if (!opModeIsActive()) return;
         stopDrive();
         //Retracts button

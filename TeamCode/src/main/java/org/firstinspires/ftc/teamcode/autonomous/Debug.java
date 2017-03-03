@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -11,7 +12,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Created by Levi on 2/27/2017.
  */
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Debug")
-
+@Disabled
 public class Debug extends LinearOpMode{
 
     DcMotor l;
@@ -48,8 +49,8 @@ public class Debug extends LinearOpMode{
         //Servos
         button_left = hardwareMap.servo.get("bl");
         button_right = hardwareMap.servo.get("br");
-        wall_servo = hardwareMap.servo.get("wsl");
-        wall_servo.setPosition(WS_DEPLOYED);
+        //wall_servo = hardwareMap.servo.get("wsl");
+        //wall_servo.setPosition(WS_DEPLOYED);
         button_left.setPosition(LEFT_RETRACTED);
         button_right.setPosition(RIGHT_RETRACTED);
         //Sensors
@@ -58,6 +59,7 @@ public class Debug extends LinearOpMode{
         eodsBack.enableLed(true);
         eodsFore.enableLed(true);
         color_left = hardwareMap.colorSensor.get("cl");
+        color_left.enableLed(false);
         touch = hardwareMap.touchSensor.get("tr");
         waitForStart();
         while (opModeIsActive()) {
@@ -65,6 +67,8 @@ public class Debug extends LinearOpMode{
             while (opModeIsActive()) {
                 telemetry.addLine("Fore: " + eodsFore.getLightDetected() + "\nBack: " + eodsBack.getLightDetected());
                 telemetry.addLine("\nTouch Sensor: " + (touch.isPressed() ? "true" : "false"));
+                telemetry.addLine("Color Left B: " + color_left.blue() + "R: " + color_left.red());
+                //telemetry.addLine("Color Right: ");
                 telemetry.update();
                 sleepOpMode(5);
             }

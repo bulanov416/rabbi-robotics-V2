@@ -54,7 +54,7 @@ public class TeleOpMain extends LinearOpMode {
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WSR_RETRACTED = 0.15f;
+    final float WSR_RETRACTED = 0.25f;
     final float WSR_DEPLOYED = 0.8f;
     final float WSL_RETRACTED = 0.8f;
     final float WSL_DEPLOYED = 0.28f;

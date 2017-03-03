@@ -36,7 +36,7 @@ public class AutonomousNO extends LinearOpMode {
     final float LEFT_RETRACTED = 0.90f;
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
-    final float RIGHT_DEPLOYED = 0.15f;
+    final float RIGHT_DEPLOYED = 0.25f;
     final float WS_RETRACTED = 0.7f;
     final float WS_DEPLOYED = 0.31f;
 

@@ -33,13 +33,13 @@ public class AutonomousRPL extends LinearOpMode {
     //Constants
     final float WHEEL_DIAMETER = 10f;
     final float PI = 3.1415f;
-    final float THRESHOLD = 0.2f;
+    final float THRESHOLD = 0.17f;
     final float LEFT_RETRACTED = 0.90f;
     final float LEFT_DEPLOYED = 0.01f;
     final float RIGHT_RETRACTED = 0.92f;
     final float RIGHT_DEPLOYED = 0.15f;
-    final float WSR_RETRACTED = 0.15f;
-    final float WSR_DEPLOYED = 0.8f;
+    final float WSR_RETRACTED = 0.25f;
+    final float WSR_DEPLOYED = 0.83f;
     final float WSL_RETRACTED = 0.8f;
     final float WSL_DEPLOYED = 0.28f;
 
